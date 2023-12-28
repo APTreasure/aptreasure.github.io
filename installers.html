@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+    <title>A Pirates Treasure</title>
+    <style>
+        /* Your CSS styles go here */
+        body {
+            font-family: 'Lexend', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e2328;
+        }
+
+        .list {
+            line-height: 0rem;
+            color: white;
+            font-weight: bold;
+        }
+
+        .listObj {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .listObj p, .listObj a {
+            flex: 1;
+            padding-left: 0.5rem;
+            padding-right: 0.5rem;
+        }
+
+        .listObj img {
+            width: 20px;
+            height: 20px;
+            margin-left: 0.5rem;
+            border-radius: 100%;
+        }
+
+        .game, .serv { text-align: left; }
+        .vers, .down { text-align: right; }
+
+        .vers {opacity: 30%;}
+
+        .down { color: rgb(132, 210, 255) }
+        .r { color: rgb(255, 127, 127); }
+        .g { color: rgb(126, 255, 132); }
+
+    </style>
+</head>
+<body>
+
+    <div class="list">
+
+        <div class="listObj"> <!-- Geometry Dash -->
+            <img class="icon"  src="icons/GeometryDash.png">
+            <p class="game">        Geometry Dash</p>
+            <p class="vers">        2.2</p>
+            <p class="serv r">      APT - MEGA</p>
+            <a class="down"   href="https://example.com"   target="_blank">Download</a>
+        </div>
+
+        <div class="listObj"> <!-- Call of Duty: Ghosts -->
+            <img class="icon"  src="icons/codghosts.png">
+            <p class="name">        Call of Duty Ghosts</p>
+            <p class="vers">        21</p>
+            <p class="serv g">      DODI - Torrent</p>
+            <a class="down r" href="https://example.com"   target="_blank">Magnet</a>
+        </div>
+
+    </div>
+
+</body>
+</html>
