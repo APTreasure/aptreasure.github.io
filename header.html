@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+        <style>
+
+            body {
+                background-color: rgba(0, 0, 0, 0.2);
+                margin: 0;
+                padding: 0;
+                height: fit-content;
+                overflow: hidden;
+            }
+
+            .header, .headerLinks {
+                padding-left: 1rem;
+                font-family: 'Lexend', sans-serif;
+                display: flex;
+                padding: 0.5rem;
+            }
+
+            .headerLinkText, .headerLinkText1 {
+                transition: 0.2s;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+
+            a:not(.icon) {
+                text-decoration: none;
+                color: grey;
+                margin-right: 1.5rem;
+                margin-left: 0rem;
+            }
+            
+            .icon {
+                margin-left: 1rem;
+                width: 32px;
+                vertical-align: middle;
+                transition: 0.2s;
+            }
+
+            .headerLinkText:hover, .icon:hover {
+                transform: scale(1.2) rotate(5deg);
+                color: white;
+                border: none;
+            }
+            .yt:hover { transform: scale(1.2) rotate(5deg); color: white; }
+            .tk:hover { transform: scale(1.2) rotate(5deg); color: white; }
+            .tw:hover { transform: scale(1.2) rotate(5deg); color: white; }
+
+            a b {
+                color: white;
+            }
+
+            .headerLinkText1 {
+                position: fixed;
+                right: 0;
+                padding: 0.5rem;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="header">
+            <a href="index"><img src="icons/logo.png" class="icon"></a>
+            <div class="headerLinks">
+                <a href="index" class="headerLinkText"><b>HOME</b></a>
+                <a href="installers" class="headerLinkText">GAMES</a>
+                <a href="software" class="headerLinkText">SOFTWARE</a>
+            </div>
+            <a href="https://github.com/APTreasure/aptreasure.github.io" target="_blank" class="headerLinkText1 tk">GITHUB</a>
+            <a href="tutorials" class="headerLinkText1 yt" style="margin-right: 8rem;">TUTORIALS</a>
+            <a href="request" target="_blank" class="headerLinkText1 tw" style="margin-right: 16rem;">REQUEST</a>
+        </div>
+    </body>
+</html>
