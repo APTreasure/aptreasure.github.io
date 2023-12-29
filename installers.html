@@ -14,6 +14,7 @@
         :root {
             --blue: rgb(132, 210, 255);
             --red: rgb(255, 127, 127);
+            --pink: rgb(255, 158, 218);
             --green: rgb(126, 255, 132);
         }
 
@@ -29,10 +30,24 @@
 
 
 
+        .navigation { /* The navigation bar, it is hosted on navigation.html so not much css here */
+            margin: 0; padding: 0; /* Fix positioning again */
+            width: 100%; height: 3rem; /* Change width/height back to normal */
+            position: sticky; top: 0; /* Make it so that when you scroll, it will stay at the top of the screen */
+        }
+
+        .list {
+            border-radius: 1rem;
+            padding: 1rem;
+            margin-top: 1rem;
+            width: 50vw;
+            margin-left: calc(25vw - .5rem);
+            border: 1px solid #303841;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
 
         /* Fix list */
         .list, .popup {
-            line-height: 0rem;
             color: white;
             font-weight: bold;
         }
@@ -44,11 +59,13 @@
         }
         /* Adjust padding and enable boxes format for list objects */
         .listObj p, .listObj a {
-            flex: 1;
+            width: 25%;
+            max-width: 25%;
+            padding-top: 0; padding-bottom: 0; margin-top: 0.35rem; margin-bottom: 0.35rem;
             padding-left: 0.5rem;
             padding-right: 0.5rem;
-            min-width: fit-content;
         }
+
         /* Make images the size of text, and circular */
         .listObj img {
             width: 20px;
@@ -67,9 +84,10 @@
         .r { color: var(--red); }
         .rb { border-color: var(--red); margin-left: 0.5rem;}
         .g { color: var(--green); }
+        .p { color: var(--pink); }
 
 
-
+        /* Button */
         button { /* Change button */
             background-color: #21272c;
             border-radius: 1rem;
@@ -80,7 +98,7 @@
 
 
 
-        /* Button */
+        /* Popup */
         .popup, .popupObj {
             line-height: normal;
             position: fixed;
@@ -94,6 +112,7 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
             opacity: 0;
             transition: opacity 0.2s; /* Add transition */
+            z-index: 9999;
         }
 
         /* Change opacity when it has the visible class */
@@ -102,32 +121,11 @@
         .popup:not(.visible) { pointer-events: none; }
         .visible .popup { pointer-events: auto; }
 
-
+        
     </style>
 </head>
 <body>
-
-    <div class="list">
-
-        <div class="listObj"> <!-- Geometry Dash -->
-            <img class="icon"  src="icons/GeometryDash.png">
-            <p class="game">        Geometry Dash</p>
-            <p class="vers">        2.2</p>
-            <p class="serv r">      APT - MEGA</p>
-            <a class="down"   href="https://mega.nz/file/cTswyKyZ#5tIGtKYErAMYx66cWBY9xL8o9rztFYQhtjpU4Ukv8qs"   target="_blank">Download</a>
-        </div>
-
-        <div class="listObj"> <!-- Call of Duty: Ghosts -->
-            <img class="icon"  src="icons/codghosts.png">
-            <p class="name">        Call of Duty Ghosts</p>
-            <p class="vers">        21</p>
-            <p class="serv g">      DODI - Torrent</p>
-            <a class="down r" href="magnet:?xt=urn:btih:JQP3DBMBUZKNBL6OYBGUN2VY34C3KKCE&dn=Call%20of%20Duty%20Ghosts%20-%20Deluxe%20Edition%20%5BUpdate%2021%5D%20-%20%5BDODI%20Repack%5D&tr=http%3A%2F%2Ftracker.trackerfix.com%3A80%2Fannounce" onclick="showPopup()">Magnet</a>
-        </div>
-
-    </div>
-
-    
+    <object data="header.html" class="navigation"></object>
     <div id="popupObj">
         <div id="popup" class="popup"> <!-- Add visible class to make initally visible -->
             <h1 class="popupa">Have you got qBittorrent?</h1>
@@ -136,8 +134,6 @@
             <button class="popupa rb"><a class="popupa down r" onclick="closePopup()">I already have it!</a></button>
         </div>
     </div>
-
-
 
     <script>
         var popupShown = false;
@@ -154,5 +150,58 @@
         }
     </script>
 
+
+
+    <div class="list"> <!--A-->
+    
+            <div class="listObj">
+            <img class="icon" src="icons/avencolony.png">
+            <p class="name"> Aven Colony (+DLCs)</p>
+            <p class="vers"> 1.0.23705</p>
+            <p class="serv p"> FitGirl - Torrent</p>
+            <a class="down r" href="magnet:?xt=urn:btih:C5F33519DD33EE2B1599C04569520082FE813E64" onclick="showPopup()">Magnet</a>
+            </div>
+    
+    </div>
+
+    <div class="list"> <!--C-->
+        
+            <div class="listObj">
+            <img class="icon"  src="icons/codbo2.png">
+            <p class="name">        Call of Duty: Black Ops II – Complete Collection</p>
+            <p class="vers">        1118</p>
+            <p class="serv g">      DODI - Torrent</p>
+            <a class="down r" href="magnet:?xt=urn:btih:XO6MDGHPW6W32CVASH4JLMWAL2ADKYMJ&dn=Call%20of%20Duty%20Black%20Ops%20II%20-%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce" onclick="showPopup()">Magnet</a>
+            </div>
+        
+            <div class="listObj">
+            <img class="icon"  src="icons/codghosts.png">
+            <p class="name">        Call of Duty: Ghosts - Deluxe Edition</p>
+            <p class="vers">        21</p>
+            <p class="serv g">      DODI - Torrent</p>
+            <a class="down r" href="magnet:?xt=urn:btih:JQP3DBMBUZKNBL6OYBGUN2VY34C3KKCE&dn=Call%20of%20Duty%20Ghosts%20-%20Deluxe%20Edition%20%5BUpdate%2021%5D%20-%20%5BDODI%20Repack%5D&tr=http%3A%2F%2Ftracker.trackerfix.com%3A80%2Fannounce" onclick="showPopup()">Magnet</a>
+            </div>
+
+    </div>
+
+    <div class="list"> <!--G-->
+        
+            <div class="listObj">
+            <img class="icon"  src="icons/GeometryDash.png">
+            <p class="game">        Geometry Dash</p>
+            <p class="vers">        2.2</p>
+            <p class="serv r">      APT - MEGA</p>
+            <a class="down"   href="https://mega.nz/file/cTswyKyZ#5tIGtKYErAMYx66cWBY9xL8o9rztFYQhtjpU4Ukv8qs"   target="_blank">Download</a>
+            </div>
+
+            <div class="listObj">
+            <img class="icon"  src="icons/GeometryDash.png">
+            <p class="game">        Geometry Dash</p>
+            <p class="vers">        2.2</p>
+            <p class="serv r">      APT - MEGA</p>
+            <a class="down"   href="https://mega.nz/file/cTswyKyZ#5tIGtKYErAMYx66cWBY9xL8o9rztFYQhtjpU4Ukv8qs"   target="_blank">Download</a>
+            </div>
+
+    </div>
 </body>
 </html>
