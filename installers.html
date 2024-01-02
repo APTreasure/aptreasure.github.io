@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+
+    <link rel="icon" href="icons/favicon.ico" type="image/png">
+    <title>APTreasure - Installers</title>
+    <style>
+        /* Add colours */
+        :root {
+            --blue: rgb(132, 210, 255);
+            --red: rgb(255, 127, 127);
+            --pink: rgb(255, 158, 218);
+            --green: rgb(126, 255, 132);
+        }
+
+
+
+        /* Adjust body */
+        body {
+            font-family: 'Lexend', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e2328;
+        }
+
+
+
+        .navigation { /* The navigation bar, it is hosted on navigation.html so not much css here */
+            margin: 0;
+            padding: 0; /* Fix positioning again */
+            width: 100%;
+            height: 3rem; /* Change width/height back to normal */
+            position: sticky;
+            top: 0; /* Make it so that when you scroll, it will stay at the top of the screen */
+            min-width: 50rem;
+        }
+
+        .list {
+            border-radius: 1rem;
+            padding: 1rem;
+            margin-top: 1rem;
+            width: 50vw;
+            margin-left: calc(25vw - .5rem);
+            border: 1px solid #303841;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            min-width: 35rem;
+        }
+
+        /* Fix list */
+        .list, .popup {
+            color: white;
+            font-weight: bold;
+        }
+        /* Align the list in boxes */
+        .listObj {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+            /* Adjust padding and enable boxes format for list objects */
+            .listObj p, .listObj a {
+                width: 25%;
+                max-width: 25%;
+                padding-top: 0;
+                padding-bottom: 0;
+                margin-top: 0.35rem;
+                margin-bottom: 0.35rem;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+            }
+
+            /* Make images the size of text, and circular */
+            .listObj img {
+                width: 20px;
+                height: 20px;
+                margin-left: 0.5rem;
+                border-radius: 100%;
+            }
+        /* Make list objects not centered */
+        .game, .serv {
+            text-align: left;
+        }
+
+        .vers, .down {
+            text-align: right;
+        }
+
+        /* Change the opacity of the versions from each list object */
+        .vers {
+            opacity: 30%;
+        }
+        /* Adjust colours */
+        .down {
+            color: var(--blue);
+        }
+
+        .r {
+            color: var(--red);
+        }
+
+        .rb {
+            border-color: var(--red);
+            margin-left: 0.5rem;
+        }
+
+        .g {
+            color: var(--green);
+        }
+
+        .p {
+            color: var(--pink);
+        }
+
+
+        /* Button */
+        button { /* Change button */
+            background-color: #21272c;
+            border-radius: 1rem;
+            border: 2px solid var(--blue);
+            padding: 0.3rem 0rem 0.3rem 0rem;
+            cursor: pointer;
+        }
+
+        .popupa.down {
+            padding: 0rem 0.8rem 0rem 0.8rem;
+            text-decoration: none;
+        }
+
+
+
+        /* Popup */
+        .popup, .popupObj {
+            line-height: normal;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 20px;
+            background-color: #21272c;
+            border: 1px solid #303841;
+            border-radius: 1rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            opacity: 0;
+            transition: opacity 0.2s; /* Add transition */
+            z-index: 9999;
+        }
+
+            /* Change opacity when it has the visible class */
+            .popup.visible {
+                opacity: 1;
+            }
+            /* Fix the popup being in the way when not visible */
+            .popup:not(.visible) {
+                pointer-events: none;
+            }
+
+        .visible .popup {
+            pointer-events: auto;
+        }
+    </style>
+</head>
+<body>
+    <object data="header.html" class="navigation"></object>
+    <div id="popupObj">
+        <div id="popup" class="popup">
+            <!-- Add visible class to make initally visible -->
+            <h1 class="popupa">Have you got qBittorrent?</h1>
+            <p class="popupa">You'll need qBittorrent or another torrenting program to open .torrent and magnet files!</p>
+            <button class="popupa"><a class="popupa down" target="_blank" href="https://www.fosshub.com/qBittorrent.html?dwl=qbittorrent_4.6.2_x64_setup.exe">Download</a></button>
+            <button class="popupa rb"><a class="popupa down r" onclick="closePopup()">I already have it!</a></button>
+        </div>
+    </div>
+
+    <script>
+        var popupShown = false;
+
+        function showPopup() {
+            if (!popupShown) {
+                document.getElementById('popup').classList.add('visible');
+                popupShown = true;
+            }
+        }
+
+        function closePopup() {
+            document.getElementById('popup').classList.remove('visible');
+        }
+    </script>
+
+
+
+
+
+
+    <div id="listContainer" class="list">
+
+    </div>
+
+    <!-- Containers for each alphabet letter -->
+    <div id="A" class="list"></div>
+    <div id="B" class="list"></div>
+    <div id="C" class="list"></div>
+    <div id="D" class="list"></div>
+    <div id="E" class="list"></div>
+    <div id="F" class="list"></div>
+    <div id="G" class="list"></div>
+    <div id="H" class="list"></div>
+    <div id="I" class="list"></div>
+    <div id="J" class="list"></div>
+    <div id="K" class="list"></div>
+    <div id="L" class="list"></div>
+    <div id="M" class="list"></div>
+    <div id="N" class="list"></div>
+    <div id="O" class="list"></div>
+    <div id="P" class="list"></div>
+    <div id="Q" class="list"></div>
+    <div id="R" class="list"></div>
+    <div id="S" class="list"></div>
+    <div id="T" class="list"></div>
+    <div id="U" class="list"></div>
+    <div id="V" class="list"></div>
+    <div id="W" class="list"></div>
+    <div id="X" class="list"></div>
+    <div id="Y" class="list"></div>
+    <div id="Z" class="list"></div>
+
+    <script>
+        function addListItem(iconSrc, name, version, source, downloadLink) {
+            var letter = name.charAt(0).toUpperCase(); // Get the first letter of the name
+
+            // Create a new listObj div
+            var newListObj = document.createElement('div');
+            newListObj.className = 'listObj';
+
+            // Create an image element for the icon
+            var iconElement = document.createElement('img');
+            iconElement.className = 'icon';
+            iconElement.src = iconSrc;
+
+            // Create paragraph elements for other details
+            var nameElement = document.createElement('p');
+            nameElement.className = 'name';
+            nameElement.textContent = name;
+
+            var versionElement = document.createElement('p');
+            versionElement.className = 'vers';
+            versionElement.textContent = version;
+
+            var sourceElement = document.createElement('p');
+            sourceElement.className = 'serv';
+            sourceElement.textContent = source;
+
+            var downloadElement = document.createElement('a');
+            downloadElement.className = downloadLink.startsWith('magnet:') ? 'down r' : 'down';
+            downloadElement.href = downloadLink;
+            downloadElement.textContent = downloadLink.startsWith('magnet:') ? 'Magnet' : 'Download';
+
+            // Open link in a new tab if it's a download link
+            if (!downloadLink.startsWith('magnet:')) {
+                downloadElement.target = '_blank';
+            } else {
+                // Add onclick attribute for magnet links
+                downloadElement.setAttribute('onclick', 'showPopup()');
+            }
+
+            // Append elements to the new listObj div
+            newListObj.appendChild(iconElement);
+            newListObj.appendChild(nameElement);
+            newListObj.appendChild(versionElement);
+            newListObj.appendChild(sourceElement);
+            newListObj.appendChild(downloadElement);
+
+            // Append the new listObj to the main container and the corresponding letter container
+            document.getElementById('listContainer').appendChild(newListObj);
+            document.getElementById(letter).appendChild(newListObj);
+
+            var categories = document.querySelectorAll('.list');
+            categories.forEach(function (category) {
+                // Check if the category has no list items
+                if (category.children.length <= 0) {
+                    category.style.display = 'none'; // Hide the category
+                } else {
+                    category.style.display = 'block'; // Show the category
+                }
+            });
+        }
+
+
+
+        addListItem('icons/avencolony.png', 'Aven Colony (+DLCs)', '1.0.23705', 'FitGirl', 'magnet:?xt=urn:btih:C5F33519DD33EE2B1599C04569520082FE813E64')
+
+        addListItem('icons/geometrydash.png', 'Geometry Dash', '2.2', 'APT - MEGA', 'https://mega.nz/file/cTswyKyZ#5tIGtKYErAMYx66cWBY9xL8o9rztFYQhtjpU4Ukv8qs')
+        addListItem('icons/goatsim3.png', 'Goat Simulator 3', '208081', 'FitGirl', 'magnet:?xt=urn:btih:A408C8604EC1126D36D505C4A080B18CCF5A3A6D&dn=Goat+Simulator+3+%28v208081+%2B+Multiplayer%2C+MULTi12%29+%5BFitGirl+Repack%5D&tr=udp%3A%2F%2Fopentor.net%3A6969&tr=udp%3A%2F%2Fopentor.org%3A2710&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce')
+
+        addListItem('icons/codbo2.png', 'Call of Duty: Black Ops II – Complete Collection', '1118', 'DODI', 'magnet:?xt=urn:btih:XO6MDGHPW6W32CVASH4JLMWAL2ADKYMJ&dn=Call%20of%20Duty%20Black%20Ops%20II%20-%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce')
+        addListItem('icons/codghosts.png', 'Call of Duty: Ghosts - Deluxe Edition', '21', 'DODI', 'magnet:?xt=urn:btih:JQP3DBMBUZKNBL6OYBGUN2VY34C3KKCE&dn=Call%20of%20Duty%20Ghosts%20-%20Deluxe%20Edition%20%5BUpdate%2021%5D%20-%20%5BDODI%20Repack%5D&tr=http%3A%2F%2Ftracker.trackerfix.com%3A80%2Fannounce');
+
+        addListItem('icons/hollowknight.png', 'Hollow Knight (+DLCs)', '1.5.68.11808', 'DODI', 'magnet:?xt=urn:btih:XWJLEXSADBWGF53UV25UIFBZIYNYT6NH&dn=Hollow%20Knight%20-%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce')
+
+        addListItem('icons/avencolony.png', 'YouTube', 'Latest', 'Online', 'https://youtube.com/')
+
+    </script>
+</body>
+</html>
