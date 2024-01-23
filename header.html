@@ -81,22 +81,22 @@
         </div>
 
         <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                var currentPath = window.location.pathname;
-        
-                // Get all anchor elements with class "headerLinkText"
-                var links = document.querySelectorAll('.headerLinkText');
-        
-                // Loop through each link and check if its href matches the current path
-                links.forEach(function(link) {
-                    var linkPath = link.getAttribute('href');
-                    if (linkPath && currentPath.includes(linkPath)) {
-                        link.style.fontWeight = 'bold'; // Set bold font weight for current link
-                        link.style.color = 'white'; // Set bold font weight for current link
-                    }
-                });
-            });
-        </script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var currentPath = window.location.pathname;
+
+        // Get all anchor elements with class "headerLinkText" within the object
+        var links = document.querySelectorAll('object .headerLinkText');
+
+        // Loop through each link and check if its href matches the current path
+        links.forEach(function(link) {
+            var linkPath = link.getAttribute('href');
+            if (linkPath && currentPath.includes(linkPath)) {
+                link.style.fontWeight = 'bold'; // Set bold font weight for current link
+            }
+        });
+    });
+</script>
+
         
         
     </body>
