@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+        <style>
+
+            body {
+                background-color: rgba(25, 25, 25, 0.9);
+                margin: 0;
+                padding: 0;
+                height: fit-content;
+                overflow: hidden;
+                backdrop-filter: blur(2px);
+            }
+
+            .header, .headerLinks {
+                padding-left: 1rem;
+                font-family: 'Lexend', sans-serif;
+                display: flex;
+                padding: 0.5rem;
+            }
+
+            .headerLinkText, .headerLinkText1 {
+                transition: 0.2s;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+                font-weight: normal;
+            }
+
+            a:not(.icon) {
+                text-decoration: none;
+                color: grey;
+                margin-right: 1.5rem;
+                margin-left: 0rem;
+            }
+            
+            .icon {
+                margin-left: 1rem;
+                width: 32px;
+                vertical-align: middle;
+                transition: 0.2s;
+            }
+
+            .headerLinkText:hover, .headerLinkText1:hover, .icon:hover {
+                transform: scale(1.1) rotate(1deg);
+                color: white;
+                border: none;
+            } .headerLinkText1:hover { transform: scale(1.1) rotate(-1deg); }
+
+            a b {
+                color: white;
+            }
+
+            .headerLinkText1 {
+                position: fixed;
+                right: 0;
+                padding: 0.5rem;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="header">
+            <a href="index"><img src="icons/logo.png" class="icon"></a>
+            <div class="headerLinks">
+                <a class="headerLinkText" href="index">HOME</a>
+                <a class="headerLinkText" href="installers">INSTALLERS</a>
+                <a class="headerLinkText" href="patches">PATCHES</a>
+                <a class="headerLinkText" href="portable">PORTABLE</a>
+                <a class="headerLinkText" href="header.html">HEADER</a>
+            </div>
+            <a href="https://github.com/APTreasure/aptreasure.github.io" target="_blank" class="headerLinkText1 github">GITHUB</a>
+            <a href="tutorials" class="headerLinkText1 tutorials" style="margin-right: 8rem;">TUTORIALS</a>
+            <a href="request" target="_blank" class="headerLinkText1 request" style="margin-right: 16rem;">REQUEST</a>
+        </div>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function() {
+                var currentPath = window.location.pathname;
+        
+                // Get all anchor elements with class "headerLinkText"
+                var links = document.querySelectorAll('.headerLinkText');
+        
+                // Loop through each link and check if its href matches the current path
+                links.forEach(function(link) {
+                    var linkPath = link.getAttribute('href');
+                    if (linkPath && currentPath.includes(linkPath)) {
+                        link.style.fontWeight = 'bold'; // Set bold font weight for current link
+                        link.style.color = 'white'; // Set bold font weight for current link
+                    }
+                });
+            });
+        </script>
+        
+        
+    </body>
+</html>
