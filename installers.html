@@ -30,8 +30,31 @@
             background-color: #1e2328;
         }
 
+        
+        
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 12px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+            background-color: #1e2328;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+            background-color: #444;
+            border-radius: 6px;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: #555;
+        }
 
 
+        
         .navigation { /* The navigation bar, it is hosted on navigation.html so not much css here */
             margin: 0;
             padding: 0; /* Fix positioning again */
@@ -42,6 +65,8 @@
             min-width: 50rem;
         }
 
+
+        
         .list {
             border-radius: 1rem;
             padding: 1rem;
