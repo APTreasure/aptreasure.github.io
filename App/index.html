@@ -1,0 +1,71 @@
+<html>
+
+<head>
+  <title>A Pirates Treasure</title>
+  <style>
+    body {
+      overflow: hidden;
+      margin: 0;
+    }
+
+    body,
+    iframe,
+    div,
+    p,
+    h1 {
+      margin: 0;
+      padding: 0;
+    }
+
+    #container {
+      position: relative;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      border: none;
+    }
+
+    #error-message {
+      z-index: -1;
+      opacity: 0;
+    }
+
+    p,
+    h1 {
+      width: 50vw;
+      font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="container">
+    <div id="error-message">
+      <h1>Uh oh! 404</h1>
+      <p>We couldn't access our servers, either because of a bug or you aren't connected to the internet.
+        If this is a bug please report this as an issue on the GitHub Repository.</p><br>
+      <p>Please check your internet connection or restart the app.</p>
+    </div>
+    <iframe src="https://aptreasure.github.io" id="pageiframe"></iframe>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      setTimeout(function () {
+        document.getElementById("error-message").style.opacity = 100;
+      }, 5000);
+    });
+  </script>
+</body>
+
+</html>
