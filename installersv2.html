@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="styles/listv2.css">
+    <link rel="stylesheet" type="text/css" href="styles/water.css">
+    
+    <link rel="icon" href="images/favicon.ico" type="image/png">
+    <title>A Pirates Treasure</title>
+
+    <meta name="description" content="Download Apps for Games and Software">
+    <meta property="og:title" content="A Pirates Treasure [BETA]">
+    <meta property="og:description" content="Download Apps for Games and Software">
+    <meta property="og:image" content="https://aptreasure.github.io/images/installersBanner.png">
+    <meta property="og:url" content="https://aptreasure.github.io">
+    <meta name="twitter:card" content="twitter:card">
+    <meta name="twitter:site" content="@twitterhandle">
+    <meta name="twitter:title" content="A Pirates Treasure [BETA]">
+    <meta name="twitter:description" content="Download Apps for Games and Software">
+    <meta name="twitter:image" content="https://aptreasure.github.io/images/installersBanner.png">
+    <meta name="twitter:url" content="https://aptreasure.github.io">
+
+</head>
+<body>
+    <!-- Add Navigation Bar -->
+    <object data="header.html" class="navigation"></object>
+
+    <!-- Notify about passwords -->
+    <h1 class="info">- Cracked Software -</h1>
+    <p class="info">If an installer requires a password, try 'APT' or '123'</p>
+
+    <!-- Add Requirements Popup -->
+    <div id="popupObj">
+        <div id="popup" class="popup">
+            <!-- Add visible class to make initally visible -->
+            <h1 class="popupa">Have you got qBittorrent?</h1>
+            <p class="popupa">You'll need qBittorrent or another torrenting program to open .torrent and magnet files!</p>
+            <button class="popupa"><a class="popupa down" target="_blank" href="https://www.fosshub.com/qBittorrent.html?dwl=qbittorrent_4.6.2_x64_setup.exe">Download</a></button>
+            <button class="popupa rb"><a class="popupa down rbt" onclick="closePopup()">I already have it!</a></button>
+        </div>
+    </div>
+
+    <div class="container">
+        <!--<p class="containerTitle">A</p>-->
+        <div class="row">
+
+            <img class="gameIcon" src="icons/photoshop.png">
+            <div class="gameInfo">
+                <p class="gameTitle">Adobe Photoshop 2024</p>
+                <p class="gameVers">v25.3.1</p>
+            </div>
+            <a href="https://example.com" class="gameButton" target="_blank">
+                <span class="buttonText">Not Available</span>
+                <div class="buttonWave"></div>
+            </a>
+
+        </div>
+        <div class="row">
+
+            <img class="gameIcon" src="icons/illustrator.png">
+            <div class="gameInfo">
+                <p class="gameTitle">Adobe Illustrator 2024</p>
+                <p class="gameVers">v28.1</p>
+            </div>
+            <a href="https://example.com" class="gameButton" target="_blank">
+                <span class="buttonText">Magnet</span>
+                <div class="buttonWave"></div>
+            </a>
+
+        </div>
+        <div class="row">
+
+            <img class="gameIcon" src="icons/avencolony.png">
+            <div class="gameInfo">
+                <p class="gameTitle">Aven Colony</p>
+                <p class="gameVers">v1.0.23705 (+DLCs)</p>
+            </div>
+            <a href="https://example.com" class="gameButton" target="_blank">
+                <span class="buttonText">Download</span>
+                <div class="buttonWave"></div>
+            </a>
+
+        </div>
+    </div>
+
+
+
+
+    <!-- Add list.js script -->
+    <script src="scripts/listv2.js"></script>
+
+    <!-- Add List Items via list.js -->
+    <!--<script>
+
+        // Usage: addListItem('identifier', 'name', 'version', 'author (+download host?)', 'link')
+
+        // addListItem(): The JavaScript function to call for a game, call also be called in the DevTools Console.
+        // Identifier: Something short that identifies the game, this is also what you should name your logo (in '/icons').
+        // Name: The closest McDonald's (joke). The name of the game, duh.
+        // Version: The version of the game you are downloading.
+        // Author: What type of Installer it is (e.g: FitGirl, DODI).
+        // Download Host: The name of the website you are downloading the game from, if you are downloading it.
+        // Link: A 'https://' or 'magnet:?=' link. It will automatically detect what type it is.
+
+        // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z (don't judge me)
+        addListItem('aftereffects', 'Adobe After Effects 2024', '24.1', 'Adobe - 1Cloud File', '', false, 'Patched', '#ff5555');
+        addListItem('illustrator', 'Adobe Illustrator 2024', '28.1', 'Adobe - 1Cloud File', '', false, 'Patched', '#ff5555');
+        addListItem('photoshop', 'Adobe Photoshop 2024', '25.3.1', 'Adobe - 1Cloud File', '', false, 'Patched', '#ff5555');
+        addListItem('lightroomclassic', 'Adobe Photoshop Lightroom Classic', '13.1', 'Adobe - 1Cloud File', '', false, 'Patched', '#ff5555');
+        addListItem('airparrot', 'AirParrot 3', '3.1.7.158', 'AirParrot - MEGA', 'https://mega.nz/file/EbtxlJBA#eMmWhCTWOywFMrVVIwc57JPX6d8XORbblgYRs-EwsF0');
+        addListItem('premierepro', 'Adobe Premiere Pro 2024', '24.1', 'Adobe - 1Cloud File', '', false, 'Patched', '#ff5555');
+        addListItem('avencolony', 'Aven Colony (+DLCs)', '1.0.23705', 'FitGirl', 'magnet:?xt=urn:btih:C5F33519DD33EE2B1599C04569520082FE813E64');
+
+        addListItem('codbo', 'Call of Duty: Black Ops', '1117', 'FitGirl', 'magnet:?xt=urn:btih:8e3b344385535434c9ddee4bfb480f433eb4e63d');
+        addListItem('codbo2', 'Call of Duty: Black Ops II', '1118', 'DODI', 'magnet:?xt=urn:btih:XO6MDGHPW6W32CVASH4JLMWAL2ADKYMJ&dn=Call%20of%20Duty%20Black%20Ops%20II%20-%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
+        addListItem('codbo3', 'Call of Duty: Black Ops III', '100.0.0.0', 'FitGirl', 'magnet:?xt=urn:btih:F55D00F390A641D5C6A2E763A733116B638696F4');
+        addListItem('codcoldwar', 'Call of Duty: Black Ops Cold War', '1707', 'DODI', 'magnet:?xt=urn:btih:TMSNTJPOWUV6DRETUDEB5CQEN5JN4YLC&dn=Call%20of%20Duty%20Black%20Ops%20Cold%20War%20Ultimate%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
+        addListItem('codghosts', 'Call of Duty: Ghosts', '21', 'DODI', 'magnet:?xt=urn:btih:JQP3DBMBUZKNBL6OYBGUN2VY34C3KKCE&dn=Call%20of%20Duty%20Ghosts%20-%20Deluxe%20Edition%20%5BUpdate%2021%5D%20-%20%5BDODI%20Repack%5D&tr=http%3A%2F%2Ftracker.trackerfix.com%3A80%2Fannounce');
+        addListItem('codmw2', 'Call of Duty: Modern Warfare 2', '1.1.2.1279292', 'DODI', 'magnet:?xt=urn:btih:TWJAT2ED2E5KME27QO2E4EEI37PAGVLG&dn=Call%20of%20Duty%20Modern%20Warfare%202%20Campaign%20Remastered%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
+        addListItem('codmw3', 'Call of Duty: Modern Warfare 3', '1.9.461', 'DODI', 'magnet:?xt=urn:btih:FJIC2I3Q6GVVVYEC6TLGBAN3CPTRRKQC&dn=Call%20of%20Duty%20Modern%20Warfare%203%20-%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
+
+        addListItem('fallout4', 'Fallout 4 (+DLCs)', '1.10.984', 'DODI', 'magnet:?xt=urn:btih:IHSA2QT2HBXL36Y3P2H5FW7ZQJQ4D4G3&dn=Fallout%204%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
+        
+        addListItem('geometrydash', 'Geometry Dash', '2.2', 'APT - MEGA', 'https://mega.nz/file/cTswyKyZ#5tIGtKYErAMYx66cWBY9xL8o9rztFYQhtjpU4Ukv8qs');
+        addListItem('gtav', 'Grand Theft Auto V (+DLCs)', '1.0.3095', 'DODI', 'magnet:?xt=urn:btih:YT2OP7EEZP5EXYIFWZLNX7DZA7WWR6S5&dn=Grand%20Theft%20Auto%20V%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
+        addListItem('goatsim3', 'Goat Simulator 3', '208081', 'FitGirl', 'magnet:?xt=urn:btih:A408C8604EC1126D36D505C4A080B18CCF5A3A6D&dn=Goat+Simulator+3+%28v208081+%2B+Multiplayer%2C+MULTi12%29+%5BFitGirl+Repack%5D&tr=udp%3A%2F%2Fopentor.net%3A6969&tr=udp%3A%2F%2Fopentor.org%3A2710&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce');
+
+        addListItem('hollowknight', 'Hollow Knight (+DLCs)', '1.5.68.11808', 'DODI', 'magnet:?xt=urn:btih:XWJLEXSADBWGF53UV25UIFBZIYNYT6NH&dn=Hollow%20Knight%20-%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
+
+        addListItem('sklauncher','Minecraft: Java Edition (SKlauncher)','3.2.5 (Any MC version)','SKlauncher','https://skmedix.pl/binaries/skl/3.2.8/x64/SKlauncher-3.2.exe');
+        addListItem('synthesia', 'Synthesia', '10.9.5890', 'Synthesia/APT - MEGA', 'https://mega.nz/file/5Gs1gJSK#To4wvFajKAHnw9rhU5qVS4D6JbMrVFGz9wGd5B7adXA');
+
+        addListItem('unpacking', 'Unpacking', '211028S', 'FitGirl', 'magnet:?xt=urn:btih:3AE4A3A808952C440FC6951F3142FDE04DC54762&dn=Unpacking+%28v211028s%2C+MULTi11%29+%5BFitGirl+Repack%5D&tr=udp%3A%2F%2F46.148.18.250%3A2710&tr=udp%3A%2F%2Fopentor.org%3A2710&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2730%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2770%2Fannounce&tr=udp%3A%2F%2Ftracker.pirateparty.gr%3A6969%2Fannounce&tr=http%3A%2F%2Fretracker.local%2Fannounce&tr=http%3A%2F%2Fretracker.ip.ncnet.ru%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce');
+        
+        addListItem('wiztree', 'WizTree Enterprise', '4.17', 'WizTree/APT - MEGA', 'https://mega.nz/file/gH8HgZhD#toYa2Exb3YGoAnV52w-A9iK9PIulNgoFPEdfOXHLSO0');
+    </script>-->
+    
+    <div class="ocean">
+        <div class="wave"></div>
+        <div class="wave wave2"></div>
+    </div>
+</body>
+</html>
