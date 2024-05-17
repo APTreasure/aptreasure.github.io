@@ -15,7 +15,7 @@ function closePopup() {
 
 
 // List Items
-function addListItem(iconSrc, name, version, source, downloadLink, openInNewTab = true, downloadLinkText) {
+function addListItem(iconSrc, name, version, source, downloadLink, openInNewTab = true, downloadLinkText, hexColor = null) {
     var letter = name.charAt(0).toUpperCase(); // Get the first letter of the name
 
     // Create a new listObj div
@@ -51,6 +51,10 @@ function addListItem(iconSrc, name, version, source, downloadLink, openInNewTab 
     } else if (downloadLink.startsWith('magnet:')) {
         // Add onclick attribute for magnet links
         downloadElement.setAttribute('onclick', 'showPopup()');
+    }
+
+    if (hexColor) {
+        downloadElement.style.color = hexColor;
     }
 
     // Append elements to the new listObj div
