@@ -1,0 +1,53 @@
+html, body {
+    height: 100%;
+    margin: 0;
+}
+
+body {
+    overflow-x: hidden;
+    background: linear-gradient(to bottom, #191d21, #142331);
+    background-attachment: fixed;
+}
+
+.ocean {
+    height: 5%;
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    pointer-events: none;
+}
+  
+.wave {
+    background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
+    position: fixed;
+    width: 6400px;
+    /* top: -198px; */
+    top: calc(100vh - 75px);
+    left: 0;
+    height: 198px;
+    transform: translate(0, 0, 0);
+    animation: wave 7s linear infinite;
+    pointer-events: none;
+}
+  
+.wave:nth-of-type(2) {
+    /* top: -168px; */
+    top: calc(100vh - 75px);
+    animation: swell 4s ease-in-out infinite;
+    opacity: 1;
+    pointer-events: none;
+}
+  
+@keyframes wave {
+    0% { margin-left: 0; }
+    100% { margin-left: -1600px;}
+}
+@keyframes swell {
+    0%, 100% {
+        transform: translate(0, -30px);
+    }
+    50% {
+        transform: translate(0, 5px);
+    }
+}

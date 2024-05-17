@@ -1,0 +1,218 @@
+/* Add colours */
+:root {
+    --blue: rgb(132, 210, 255);
+    --red: rgb(255, 127, 127);
+    --pink: rgb(255, 158, 218);
+    --green: rgb(126, 255, 132);
+    --purple: #6A5ACD;
+    --lightpurple: #9c8dff;
+    --lightlightpurple: #d4cdff;
+}
+
+
+
+.info {
+    text-align: center;
+    color: white;
+}
+
+
+
+/* Adjust body */
+body {
+    font-family: 'Lexend', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #191d21;
+}
+
+
+
+/* Scrollbar */
+::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background-color: #1e2328;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background-color: #444;
+    border-radius: 6px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background-color: #555;
+}
+
+
+
+.navigation { /* The navigation bar, it is hosted on navigation.html so not much css here */
+    margin: 0;
+    padding: 0; /* Fix positioning again */
+    width: 100%;
+    height: 3rem; /* Change width/height back to normal */
+    position: sticky;
+    top: 0; /* Make it so that when you scroll, it will stay at the top of the screen */
+    min-width: 61rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+
+
+.list {
+    border-radius: 1rem;
+    padding: 1rem;
+    margin-top: 1rem;
+    width: 70vw;
+    margin-left: calc(15vw - .5rem);
+    border: 1px solid #303841;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    min-width: 35rem;
+}
+
+/* Fix list */
+.list, .popup {
+    color: white;
+    font-weight: bold;
+    /*background-color: rgba(30, 35, 40, 0.2);*/
+    background-color: rgba(100, 100, 100, 0.05);
+}
+/* Align the list in boxes */
+.listObj {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+    /* Adjust padding and enable boxes format for list objects */
+    .listObj p, .listObj a {
+        padding-top: 0;
+        padding-bottom: 0;
+        margin-top: 0.65rem;
+        margin-bottom: 0.65rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+.name { width: 40%; }
+.vers { width: 10%; }
+.serv { width: 30%; }
+.down { width: 20%; }
+
+    /* Make images the size of text, and circular */
+    .listObj img {
+        width: 20px;
+        height: 20px;
+        margin-left: 0.5rem;
+        border-radius: 100%;
+    }
+/* Make list objects not centered */
+.game, .serv {
+    text-align: left;
+}
+
+.vers, .down {
+    text-align: right;
+}
+
+/* Change the opacity of the versions from each list object */
+.vers {
+    opacity: 30%;
+}
+
+
+/* Adjust colours */
+.down {
+    color: var(--blue);
+    transition: 0.2s;
+}
+
+.down:hover {
+    text-shadow: var(--blue) 0px 0px 10px;
+    color: var(--blue);
+}
+
+.r {
+    color: var(--lightpurple);
+    transition: 0.2s;
+}
+
+.r:hover {
+    text-shadow: var(--purple) 0px 0px 15px;
+    color: var(--lightlightpurple);
+}
+
+
+
+.rb {
+    border-color: var(--red);
+    margin-left: 0.5rem;
+}
+
+.rbt {
+    color: var(--red);
+}
+
+.rbt:hover {
+    text-shadow: var(--red) 0px 0px 15px;
+    color: var(--red);
+}
+
+.g {
+    color: var(--green);
+}
+
+.p {
+    color: var(--pink);
+}
+
+
+/* Button */
+button { /* Change button */
+    background-color: #21272c;
+    border-radius: 1rem;
+    border: 2px solid var(--blue);
+    padding: 0.3rem 0rem 0.3rem 0rem;
+    cursor: pointer;
+}
+
+.popupa.down {
+    padding: 0rem 0.8rem 0rem 0.8rem;
+    text-decoration: none;
+}
+
+
+
+/* Popup */
+.popup, .popupObj {
+    line-height: normal;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #21272c;
+    border: 1px solid #303841;
+    border-radius: 1rem;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    opacity: 0;
+    transition: opacity 0.2s; /* Add transition */
+    z-index: 9999;
+}
+
+    /* Change opacity when it has the visible class */
+    .popup.visible {
+        opacity: 1;
+    }
+    /* Fix the popup being in the way when not visible */
+    .popup:not(.visible) {
+        pointer-events: none;
+    }
+
+.visible .popup {
+    pointer-events: auto;
+}

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+        <style>
+
+            /* Add colours */
+            :root {
+                --blue: rgb(132, 210, 255);
+                --red: rgb(255, 127, 127);
+                --pink: rgb(255, 158, 218);
+                --green: rgb(126, 255, 132);
+                --purple: #6A5ACD;
+                --yellow: rgb(255, 215, 0);
+                --lightpurple: #9c8dff;
+                --lightlightpurple: #d4cdff;
+            }
+
+            body {
+                margin: 0;
+                padding: 0;
+                height: fit-content;
+                overflow: hidden;
+                backdrop-filter: blur(10px);
+            }
+
+            .header, .headerLinks {
+                padding-left: 1rem;
+                font-family: 'Lexend', sans-serif;
+                display: flex;
+                padding: 0.5rem;
+            }
+
+            .headerLinkText, .headerLinkText1 {
+                transition: 0.2s;
+                padding-left: 0.5rem;
+                padding-right: 0.5rem;
+                font-weight: normal;
+            }
+
+            a:not(.icon) {
+                text-decoration: none;
+                color: grey;
+                margin-right: 1.5rem;
+                margin-left: 0rem;
+            }
+            
+            .icon {
+                margin-left: 1rem;
+                height: 32px;
+                vertical-align: middle;
+                transition: 0.2s;
+            }
+
+            .headerLinkText:hover, .headerLinkText1:hover, .icon:hover {
+                transform: scale(1.1);
+                color: #ffffff;
+                border: none;
+            } .headerLinkText1:hover { transform: scale(1.1); color: var(--yellow); }
+
+            a b {
+                color: white;
+            }
+
+            .headerLinkText1 {
+                position: fixed;
+                right: 0;
+                padding: 0.5rem;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="header">
+            <a href="https://aptreasure.github.io" target="_top"><img src="images/title.png" class="icon"></a>
+            <div class="headerLinks">
+                <a class="headerLinkText" href="https://aptreasure.github.io" target="_top">HOME</a>
+                <a class="headerLinkText" href="downloads" target="_top">SOFTWARE</a>
+                <a class="headerLinkText" href="installers" target="_top">CRACKS</a>
+                <a class="headerLinkText" href="index" target="_top">CHEATS</a>
+                <!--
+                <a class="headerLinkText" href="" target="_top">PORTABLE</a>
+                <a class="headerLinkText" href="" target="_top">WEBSITES</a>
+                -->
+            </div>
+            <a href="https://github.com/APTreasure?tab=repositories" target="_blank" class="headerLinkText1 github">GITHUB</a>
+            <!--
+            <a href="" target="_top" class="headerLinkText1 tutorials" style="margin-right: 8rem;">TUTORIALS</a>
+            <a href="" target="_top" target="_blank" class="headerLinkText1 request" style="margin-right: 16rem;">REQUEST</a>
+            -->
+        </div>
+
+        <script>
+    document.addEventListener("DOMContentLoaded", function() {
+        var currentPath = window.location.pathname;
+
+        // Get all anchor elements with class "headerLinkText" within the object
+        var links = document.querySelectorAll('object .headerLinkText');
+
+        // Loop through each link and check if its href matches the current path
+        links.forEach(function(link) {
+            var linkPath = link.getAttribute('href');
+            if (linkPath && currentPath.includes(linkPath)) {
+                link.style.fontWeight = 'bold'; // Set bold font weight for current link
+            }
+        });
+    });
+</script>
+
+        
+        
+    </body>
+</html>
