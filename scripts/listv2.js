@@ -109,3 +109,62 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     });
 });
+
+
+document.querySelectorAll('.gameButton').forEach(button => {
+    button.addEventListener('mouseover', () => {
+        button.parentElement.querySelector('.downInfo').classList.add('adjusted-margin');
+    });
+    button.addEventListener('mouseout', () => {
+        button.parentElement.querySelector('.downInfo').classList.remove('adjusted-margin');
+    });
+});
+
+
+
+
+
+
+const parrotImgs = document.querySelectorAll('.parrot');
+
+// Function to switch images
+function switchImage(event) {
+  const currentImg = event.target;
+  const isAnimated = currentImg.src.includes('parrot_animated.webp');
+
+  // Check if the current image is static and not already animated
+  if (!isAnimated) {
+    // Switch to the animated image
+    currentImg.src = 'images/parrot_animated.webp';
+
+    // Add the parrothover class
+    currentImg.classList.add('parrothover');
+
+    // Check if the mouse is still over the image every 3 seconds
+    const intervalId = setInterval(() => {
+      if (!currentImg.matches(':hover')) {
+        // If the mouse is not over the image, switch back to static image
+        currentImg.src = 'images/parrot.png';
+        clearInterval(intervalId); // Stop checking once the image is switched
+        // Remove the parrothover class
+        currentImg.classList.remove('parrothover');
+      }
+    }, 3000);
+  }
+}
+
+// Add mouseover event listener to trigger animation
+parrotImgs.forEach(parrotImg => {
+  parrotImg.addEventListener('mouseover', switchImage);
+});
+
+// Add mouseout event listener to stop animation if mouse leaves the image
+parrotImgs.forEach(parrotImg => {
+  parrotImg.addEventListener('mouseout', () => {
+    clearInterval(intervalId); // Stop checking if mouse leaves the image
+    // Remove the parrothover class
+    parrotImg.classList.remove('parrothover');
+  });
+});
+
+
