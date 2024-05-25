@@ -323,7 +323,7 @@ a span {
     width: 70vw;
     max-width: 50rem;
     min-width: 35rem;
-    position: absolute;
+    position: relative;
     left: 50%;
     transform: translateX(-50%);
     padding: 10px 10px 0 10px;
@@ -331,6 +331,7 @@ a span {
     background-color: rgba(100, 100, 100, 0.05);
     border: 1px solid #303841;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    margin-bottom: 15px;
 }
 
 .row {

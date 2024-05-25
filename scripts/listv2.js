@@ -168,3 +168,81 @@ parrotImgs.forEach(parrotImg => {
 });
 
 
+
+
+
+
+
+
+function addItem(containerSelector, gameIcon, gameTitle, gameVers, downAuthor, downHost, buttonText, buttonLink, openInNewTab) {
+    const container = document.querySelector(`#${containerSelector}.container`);
+
+    if (!container) {
+        return;
+    }
+
+    const row = document.createElement('div');
+    row.className = 'row';
+    
+    const icon = document.createElement('img');
+    icon.className = 'gameIcon';
+    icon.src = gameIcon;
+    
+    const gameInfo = document.createElement('div');
+    gameInfo.className = 'gameInfo';
+    const title = document.createElement('p');
+    title.className = 'gameTitle';
+    title.textContent = gameTitle;
+    const version = document.createElement('p');
+    version.className = 'gameVers';
+    version.textContent = gameVers;
+    gameInfo.appendChild(title);
+    gameInfo.appendChild(version);
+    
+    const downInfo = document.createElement('div');
+    downInfo.className = 'downInfo';
+    const author = document.createElement('p');
+    author.className = 'downAuthor';
+    if (downAuthor != '') {
+        author.textContent = `by ${downAuthor}`;
+    } else {
+        author.textContent = ``;
+    }
+    const host = document.createElement('p');
+    host.className = 'downHost';
+    if (downHost != '') {
+        host.textContent = `via ${downHost}`;
+    } else {
+        host.textContent = ``;
+    }
+    downInfo.appendChild(author);
+    downInfo.appendChild(host);
+    
+    const link = document.createElement('a');
+    link.href = buttonLink;
+    link.className = 'gameButton';
+    if (openInNewTab) {
+        link.target = '_blank';
+    }
+    link.addEventListener('mouseover', () => {
+        link.parentElement.querySelector('.downInfo').classList.add('adjusted-margin');
+    });
+    link.addEventListener('mouseout', () => {
+        link.parentElement.querySelector('.downInfo').classList.remove('adjusted-margin');
+    });
+
+    const linkText = document.createElement('span');
+    linkText.className = 'buttonText';
+    linkText.textContent = buttonText;
+    const buttonWave = document.createElement('div');
+    buttonWave.className = 'buttonWave';
+    link.appendChild(linkText);
+    link.appendChild(buttonWave);
+    
+    row.appendChild(icon);
+    row.appendChild(gameInfo);
+    row.appendChild(downInfo);
+    row.appendChild(link);
+    
+    container.appendChild(row);
+}
