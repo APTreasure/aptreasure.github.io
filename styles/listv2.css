@@ -240,10 +240,11 @@ a {
     justify-content: center;
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     transition: 0.1s;
+    transform-origin: right;
 }
 
 a:hover {
-    transform: scale(1.1) translateY(-50%) translateX(-5%);
+    transform: scale(1.1) translateY(-50%);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.25);
 
     .downInfo {
@@ -332,6 +333,8 @@ a span {
     border: 1px solid #303841;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     margin-bottom: 15px;
+    opacity: 1;
+    transition: 0.2s;
 }
 
 .row {
@@ -344,6 +347,8 @@ a span {
     background-color: rgba(150, 150, 150, 0.05);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
     border: 1px solid rgba(255, 255, 255, 0.05);
+    opacity: 1;
+    transition: 0.2s;
 }
 
 .gameIcon {
@@ -412,4 +417,43 @@ a span {
 .parrothover {
     opacity: 100%;
     filter: drop-shadow(0 0 8px rgba(0, 0, 0, 0.3));
+}
+
+
+
+
+
+
+.search, .filter {
+    transition: 0.1s;
+    border-radius: 16px;
+    height: 32px;
+    margin-bottom: 10px;
+    padding-left: 8px;
+    background-color: rgba(150, 150, 150, 0.05);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    color: white;
+    outline: 0 solid rgba(255, 255, 255, 0.05);
+    vertical-align: middle;
+}
+
+.search {
+    width: calc(100% - 32px - (6px * 4));
+    transform-origin: left;
+    font-family: 'Lexend', sans-serif;
+}
+
+.filter {
+    border-radius: 69px;
+    width: 32px;
+    margin-left: 6px;
+    transform-origin: right;
+}
+
+
+
+.search:hover, .search:focus, .filter:hover {
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    outline: 1px solid rgba(175, 175, 175, 0.5);
 }

@@ -174,11 +174,14 @@ parrotImgs.forEach(parrotImg => {
 
 
 
-function addItem(containerSelector, gameIcon, gameTitle, gameVers, downAuthor, downHost, buttonText, buttonLink, openInNewTab) {
-    const container = document.querySelector(`#${containerSelector}.container`);
+function addItem(containerSelector, gameIcon, gameTitle, buttonText, gameVers = '', downAuthor = '', downHost = '', openInNewTab = false, buttonLink = '') {
+    let container = document.querySelector(`#${containerSelector}.container`);
 
     if (!container) {
-        return;
+        container = document.createElement('div');
+        container.id = containerSelector;
+        container.className = 'container';
+        document.body.appendChild(container);
     }
 
     const row = document.createElement('div');
@@ -186,7 +189,7 @@ function addItem(containerSelector, gameIcon, gameTitle, gameVers, downAuthor, d
     
     const icon = document.createElement('img');
     icon.className = 'gameIcon';
-    icon.src = gameIcon;
+    icon.src = `icons/${gameIcon}.png`;
     
     const gameInfo = document.createElement('div');
     gameInfo.className = 'gameInfo';
@@ -195,7 +198,11 @@ function addItem(containerSelector, gameIcon, gameTitle, gameVers, downAuthor, d
     title.textContent = gameTitle;
     const version = document.createElement('p');
     version.className = 'gameVers';
-    version.textContent = gameVers;
+    if (gameVers != '') {
+        version.textContent = 'v' + gameVers;
+    } else {
+        version.textContent = gameVers;
+    }
     gameInfo.appendChild(title);
     gameInfo.appendChild(version);
     
@@ -246,3 +253,63 @@ function addItem(containerSelector, gameIcon, gameTitle, gameVers, downAuthor, d
     
     container.appendChild(row);
 }
+
+
+
+
+document.querySelector('.search').addEventListener('input', function() {
+    let searchValue = this.value.toLowerCase();
+    let searchContainer = document.getElementById('00input');
+    let containers = document.querySelectorAll('.container');
+
+    async function filterRows() {
+        for (let container of containers) {
+            if (container === searchContainer) continue; // Skip the search container
+
+            let rows = container.querySelectorAll('.row');
+            let anyVisible = false;
+            let containerHeight = 0;
+
+            rows.forEach(row => {
+                let gameTitle = row.querySelector('.gameTitle').textContent.toLowerCase();
+                if (searchValue && !gameTitle.includes(searchValue)) {
+                    row.style.opacity = '0';
+                    setTimeout(() => {
+                        row.style.display = 'none';
+                        updateContainerHeight(container);
+                    }, 200); // Wait for 200 ms before setting display to none
+                } else {
+                    row.style.display = 'flex';
+                    setTimeout(() => {
+                        row.style.opacity = '1';
+                        updateContainerHeight(container);
+                    }, 200); // Set opacity to 1 after 200 ms
+                    anyVisible = true;
+                }
+            });
+
+            if (!anyVisible) {
+                setTimeout(() => {
+                    container.style.display = 'none';
+                }, 200); // Hide container after 200 ms if no rows are visible
+            } else {
+                container.style.display = 'block';
+                updateContainerHeight(container);
+            }
+        }
+    }
+
+    function updateContainerHeight(container) {
+        const visibleRows = container.querySelectorAll('.row');
+        let totalHeight = 0;
+        visibleRows.forEach(row => {
+            if (row.style.display !== 'none') {
+                totalHeight += row.offsetHeight + 10; // Add row height and row bottom margin
+            }
+        });
+        container.style.height = `${totalHeight}px`;
+    }
+
+    clearTimeout(this._timeout); // Clear any previous timeout
+    this._timeout = setTimeout(filterRows, 200);
+});
