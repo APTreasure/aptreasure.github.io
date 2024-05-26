@@ -14,76 +14,6 @@ function closePopup() {
 
 
 
-// List Items
-function addListItem(iconSrc, name, version, source, downloadLink, openInNewTab = true, downloadLinkText, hexColor = null) {
-    
-    
-    
-    return
-    var letter = name.charAt(0).toUpperCase(); // Get the first letter of the name
-
-    // Create a new listObj div
-    var newListObj = document.createElement('div');
-    newListObj.className = 'listObj';
-
-    // Create an image element for the icon
-    var iconElement = document.createElement('img');
-    iconElement.className = 'icon';
-    iconElement.src = "icons/" + iconSrc + ".png";
-
-    // Create paragraph elements for other details
-    var nameElement = document.createElement('p');
-    nameElement.className = 'name';
-    nameElement.textContent = name;
-
-    var versionElement = document.createElement('p');
-    versionElement.className = 'vers';
-    versionElement.textContent = version;
-
-    var sourceElement = document.createElement('p');
-    sourceElement.className = 'serv';
-    sourceElement.textContent = source;
-
-    var downloadElement = document.createElement('a');
-    downloadElement.className = downloadLink.startsWith('magnet:') ? 'down r' : 'down';
-    downloadElement.href = downloadLink;
-    downloadElement.textContent = downloadLinkText || (downloadLink.startsWith('magnet:') ? 'Magnet' : 'Download');
-
-    // Open link in a new tab if specified
-    if (openInNewTab && !downloadLink.startsWith('magnet:')) {
-        downloadElement.target = '_blank';
-    } else if (downloadLink.startsWith('magnet:')) {
-        // Add onclick attribute for magnet links
-        downloadElement.setAttribute('onclick', 'showPopup()');
-    }
-
-    if (hexColor) {
-        downloadElement.style.color = hexColor;
-    }
-
-    // Append elements to the new listObj div
-    newListObj.appendChild(iconElement);
-    newListObj.appendChild(nameElement);
-    newListObj.appendChild(versionElement);
-    newListObj.appendChild(sourceElement);
-    newListObj.appendChild(downloadElement);
-
-    // Append the new listObj to the main container and the corresponding letter container
-    document.getElementById('listContainer').appendChild(newListObj);
-    document.getElementById(letter).appendChild(newListObj);
-
-    var categories = document.querySelectorAll('.list');
-    categories.forEach(function (category) {
-        // Check if the category has no list items
-        if (category.children.length <= 0) {
-            category.style.display = 'none'; // Hide the category
-        } else {
-            category.style.display = 'block'; // Show the category
-        }
-    });
-}
-
-
 document.addEventListener("DOMContentLoaded", function() {
     var buttons = document.querySelectorAll("a");
 
@@ -96,15 +26,35 @@ document.addEventListener("DOMContentLoaded", function() {
 
             if (textContent === "Download") {
                 buttonWave.style.backgroundColor = "#00aaff";
+
             } else if (textContent === "Magnet") {
                 buttonWave.style.backgroundColor = "#6A5ACD";
-            } else if (textContent === "Not Available") { // Corrected typo in "Not Available"
-                buttonWave.style.backgroundColor = "#ff6969";
+
+            } else if (textContent === "Open" || textContent === "Open Page") {
+                buttonWave.style.backgroundColor = "#00aa00";
+
+            } else if (textContent === "Not Available" || textContent === "Patched") { // Corrected typo in "Not Available"
+                buttonWave.style.backgroundColor = "#202530";
                 button.style.cursor = "not-allowed";
                 button.href = "javascript:void(0);";
                 button.target = "";
+                span.style.opacity = "0.5";
+
+            } else if (textContent === "Coming Soon") {
+                buttonWave.style.backgroundColor = "#883300";
+                button.style.cursor = "not-allowed";
+                button.href = "javascript:void(0);";
+                button.target = "";
+                span.style.opacity = "0.5";
+
             } else {
-                buttonWave.style.backgroundColor = "#ffffff";
+                buttonWave.style.backgroundColor = "#502020";
+                span.style.opacity = "0.5";
+                span.textContent = "Styling Error";
+                button.style.cursor = "not-allowed";
+                button.href = "javascript:void(0);";
+                button.target = "";
+                button.style.pointerEvents = "none";
             }
         }
     });
@@ -196,10 +146,13 @@ function addItem(containerSelector, gameIcon, gameTitle, buttonText, gameVers = 
     const title = document.createElement('p');
     title.className = 'gameTitle';
     title.textContent = gameTitle;
+
     const version = document.createElement('p');
     version.className = 'gameVers';
-    if (gameVers != '') {
+    if (gameVers != '' && gameVers[0] !== '.') {
         version.textContent = 'v' + gameVers;
+    } else if (gameVers[0] === '.') {
+        version.textContent = gameVers.replace(/^\./, '');
     } else {
         version.textContent = gameVers;
     }
@@ -258,7 +211,7 @@ function addItem(containerSelector, gameIcon, gameTitle, buttonText, gameVers = 
 
 
 document.querySelector('.search').addEventListener('input', function() {
-    let searchValue = this.value.toLowerCase();
+    let searchValue = this.value.trim().toLowerCase();
     let searchContainer = document.getElementById('00input');
     let containers = document.querySelectorAll('.container');
 
@@ -268,11 +221,24 @@ document.querySelector('.search').addEventListener('input', function() {
 
             let rows = container.querySelectorAll('.row');
             let anyVisible = false;
-            let containerHeight = 0;
 
             rows.forEach(row => {
-                let gameTitle = row.querySelector('.gameTitle').textContent.toLowerCase();
-                if (searchValue && !gameTitle.includes(searchValue)) {
+                let gameTitleElement = row.querySelector('.gameTitle');
+                let originalGameTitle = gameTitleElement.textContent.trim();
+                let gameTitle = gameTitleElement.textContent.trim().toLowerCase();
+                let cleanGameTitle = gameTitle.replace(/[^\w\s]/g, '');
+                let imageID = row.querySelector('.gameIcon').src.replace(/^.+\/([^\/]+)\.png$/, '$1'); // We can't be bothered re-coding this, so it stays :O
+                let titleWords = gameTitle.split(' ');
+
+                let combinedLetters = '';
+                titleWords.forEach(word => {
+                    combinedLetters += word.charAt(0);
+                });
+
+                // Check if the combined letters match the search query or if the row title contains the search query
+                let found = combinedLetters.startsWith(searchValue) || gameTitle.includes(searchValue) || cleanGameTitle.includes(searchValue);
+
+                if (searchValue && !found) {
                     row.style.opacity = '0';
                     setTimeout(() => {
                         row.style.display = 'none';
@@ -280,6 +246,8 @@ document.querySelector('.search').addEventListener('input', function() {
                     }, 200); // Wait for 200 ms before setting display to none
                 } else {
                     row.style.display = 'flex';
+
+                    gameTitleElement.innerHTML = highlightMatch(originalGameTitle, searchValue);
                     setTimeout(() => {
                         row.style.opacity = '1';
                         updateContainerHeight(container);
@@ -289,15 +257,20 @@ document.querySelector('.search').addEventListener('input', function() {
             });
 
             if (!anyVisible) {
+                container.style.opacity = '0';
+                container.style.height = '0';
                 setTimeout(() => {
                     container.style.display = 'none';
                 }, 200); // Hide container after 200 ms if no rows are visible
             } else {
+                container.style.opacity = '1';
                 container.style.display = 'block';
                 updateContainerHeight(container);
             }
         }
     }
+
+
 
     function updateContainerHeight(container) {
         const visibleRows = container.querySelectorAll('.row');
@@ -310,6 +283,88 @@ document.querySelector('.search').addEventListener('input', function() {
         container.style.height = `${totalHeight}px`;
     }
 
+
+
+    function highlightMatch(text, query) {
+        if (!query.trim()) return text;
+        console.clear();
+    
+        // Normalize the text and query by removing special characters and converting to lowercase
+        const normalize = str => str.toLowerCase().replace(/[^a-z0-9\s]/g, '');
+        let normalizedText = normalize(text);
+        let normalizedQuery = normalize(query);
+    
+        console.log("Normalized Text: ", normalizedText);
+        console.log("Normalized Query: ", normalizedQuery);
+    
+        // Find positions in the normalized text where the normalized query matches
+        let positions = [];
+        let offset = normalizedText.indexOf(normalizedQuery);
+        while (offset !== -1) {
+            positions.push(offset);
+            offset = normalizedText.indexOf(normalizedQuery, offset + 1);
+        }
+    
+        console.log("Query Positions Found: ", positions);
+    
+        // Highlight matching text
+        if (positions.length > 0) {
+            let highlightedText = text;
+            positions.reverse().forEach(pos => {
+                let endPos = pos + query.length;
+    
+                // Check for special characters within the range from text[offset] to query.length + offset
+                let hasSpecialCharacterInRange = false;
+                for (let i = pos; i < endPos; i++) {
+                    if (text[i] && text[i].match(/[^a-z0-9\s]/gi)) {
+                        hasSpecialCharacterInRange = true;
+                        console.log("true");
+                        break;
+                    } else {
+                        console.log("false");
+                    }
+                }
+
+                // Adjust the end position if a special character is found directly before the highlighted text
+                for (let i = pos - 1; i >= 0; i--) {
+                    if (text[i].match(/[^a-z0-9\s]/gi)) {
+                        pos++;
+                        endPos ++; // Add one more character to the end position
+                        break; // Stop the loop once a special character is found
+                    }
+                }
+                
+                if (hasSpecialCharacterInRange) {
+                    endPos ++;
+                }
+
+                let originalTextMatch = text.slice(pos, endPos);
+                console.log("Original Text Match: ", originalTextMatch);
+    
+                highlightedText = highlightedText.substring(0, pos) +
+                    `<span style="color: #ffd700; border-radius: 4px; background-color: rgba(255, 215, 0, 0.1); padding: 0 2px; margin: 0 1px;">${originalTextMatch}</span>` +
+                    highlightedText.substring(endPos);
+            });
+            return highlightedText;
+        }
+    
+        // If no exact match found, highlight based on first letter
+        let words = text.split(' ');
+        let nyoom = -1
+        let highlightedWords = words.map(word => {
+            nyoom++;
+            console.log(`${nyoom}. ${word[0]} ${word}`);
+            if (nyoom < query.length && query[nyoom].toLowerCase() === word[0].toLowerCase()) {
+                return `<span style="color: rgb(156, 141, 255); border-radius: 4px; background-color: rgba(156, 141, 255, 0.1);">${word[0]}</span>${word.slice(1)}`;
+            } else {
+                return word;
+            }
+        });
+        return highlightedWords.join(' ');
+    }
+    
+
+    
     clearTimeout(this._timeout); // Clear any previous timeout
     this._timeout = setTimeout(filterRows, 200);
 });
