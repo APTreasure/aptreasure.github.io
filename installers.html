@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
     
-    <link rel="stylesheet" type="text/css" href="styles/list.css">
+    <link rel="stylesheet" type="text/css" href="styles/listv2.css">
     <link rel="stylesheet" type="text/css" href="styles/water.css">
     
     <link rel="icon" href="images/favicon.ico" type="image/png">
@@ -34,7 +34,9 @@
 
     <!-- Notify about passwords -->
     <h1 class="info">- Cracked Software -</h1>
+    <img class="parrot" src="images/parrot.png" alt="Parrot">
     <p class="info">If an installer requires a password, try 'APT' or '123'</p>
+    <p class="info orange">InstallerV2 pages are not finished, some things may not work as expected</p>
 
     <!-- Add Requirements Popup -->
     <div id="popupObj">
@@ -47,87 +49,80 @@
         </div>
     </div>
 
-    <!-- List to Copy -->
-    <div id="listContainer" class="list"></div>
+    <div class="container" id="00input">
+        <input class="search" placeholder="Search">
+        <button class="filter"></button>
+    </div>
 
-    <!-- Containers for each alphabet letter -->
-    <div id="A" class="list"></div>
-    <div id="B" class="list"></div>
-    <div id="C" class="list"></div>
-    <div id="D" class="list"></div>
-    <div id="E" class="list"></div>
-    <div id="F" class="list"></div>
-    <div id="G" class="list"></div>
-    <div id="H" class="list"></div>
-    <div id="I" class="list"></div>
-    <div id="J" class="list"></div>
-    <div id="K" class="list"></div>
-    <div id="L" class="list"></div>
-    <div id="M" class="list"></div>
-    <div id="N" class="list"></div>
-    <div id="O" class="list"></div>
-    <div id="P" class="list"></div>
-    <div id="Q" class="list"></div>
-    <div id="R" class="list"></div>
-    <div id="S" class="list"></div>
-    <div id="T" class="list"></div>
-    <div id="U" class="list"></div>
-    <div id="V" class="list"></div>
-    <div id="W" class="list"></div>
-    <div id="X" class="list"></div>
-    <div id="Y" class="list"></div>
-    <div id="Z" class="list"></div>
-    <br><br><br><br><p class="info" style="opacity: 0.2; font-style: italic; pointer-events: none;">the waves say hello :)</p><br>
 
-    <!-- Add list.js script -->
-    <script src="scripts/list.js"></script>
+    <!-- Add listv2.js script -->
+    <script src="scripts/listv2.js"></script>
 
-    <!-- Add List Items via list.js -->
+    
+    <!-- Add List Items via listv2.js -->
     <script>
+        // Usage: addItem('group', 'id', 'name', 'buttonText', 'version', '(by) author', '(via) downloadHost', 'openInNewTab', 'link')
 
-        // Usage: addListItem('identifier', 'name', 'version', 'author (+download host?)', 'link')
+        // (Required) addItem():        The JavaScript function to call for a game, call also be called in the DevTools Console.
+        // (Required) Group:            The ID of the parent container.
+        // (Required) ID:               Short string the identifies the game (in '/icons').
+        // (Required) Name:             Game name.
+        // (Required) Button Text:      Text inside the button (needs to be added in js).
 
-        // addListItem(): The JavaScript function to call for a game, call also be called in the DevTools Console.
-        // Identifier: Something short that identifies the game, this is also what you should name your logo (in '/icons').
-        // Name: The closest McDonald's (joke). The name of the game, duh.
-        // Version: The version of the game you are downloading.
-        // Author: What type of Installer it is (e.g: FitGirl, DODI).
-        // Download Host: The name of the website you are downloading the game from, if you are downloading it.
-        // Link: A 'https://' or 'magnet:?=' link. It will automatically detect what type it is.
+        // (Optional) Version:          Game version. (Adds 'v ' to the start, to disable add '.' to the start)
+        // (Optional) Author:           Who the crack is by. (Adds 'by ' to the start)
+        // (Optional) Download Host:    How you are downloading (eg. 'Torrent'). (Adds 'via ')
+        // (Optional) Open in New Tab:  Boolean (true/false) which specifies if it should open in a new tab.
+        // (Optional) Link:             Link to the game.
 
         // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z (don't judge me)
-        addListItem('aftereffects', 'Adobe After Effects 2024', '24.1', 'Adobe - 1Cloud File', '', false, 'No Download', '#ff5555');
-        addListItem('illustrator', 'Adobe Illustrator 2024', '28.1', 'Adobe - 1Cloud File', '', false, 'No Download', '#ff5555');
-        addListItem('photoshop', 'Adobe Photoshop 2024', '25.3.1', 'Adobe - 1Cloud File', '', false, 'No Download', '#ff5555');
-        addListItem('lightroomclassic', 'Adobe Photoshop Lightroom Classic', '13.1', 'Adobe - 1Cloud File', '', false, 'No Download', '#ff5555');
-        addListItem('airparrot', 'AirParrot 3', '3.1.7.158', 'AirParrot - MEGA', 'https://mega.nz/file/EbtxlJBA#eMmWhCTWOywFMrVVIwc57JPX6d8XORbblgYRs-EwsF0');
-        addListItem('premierepro', 'Adobe Premiere Pro 2024', '24.1', 'Adobe - 1Cloud File', '', false, 'No Download', '#ff5555');
-        addListItem('avencolony', 'Aven Colony (+DLCs)', '1.0.23705', 'FitGirl', 'magnet:?xt=urn:btih:C5F33519DD33EE2B1599C04569520082FE813E64');
 
-        addListItem('codbo', 'Call of Duty: Black Ops', '1117', 'FitGirl', 'magnet:?xt=urn:btih:8e3b344385535434c9ddee4bfb480f433eb4e63d');
-        addListItem('codbo2', 'Call of Duty: Black Ops II', '1118', 'DODI', 'magnet:?xt=urn:btih:XO6MDGHPW6W32CVASH4JLMWAL2ADKYMJ&dn=Call%20of%20Duty%20Black%20Ops%20II%20-%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
-        addListItem('codbo3', 'Call of Duty: Black Ops III', '100.0.0.0', 'FitGirl', 'magnet:?xt=urn:btih:F55D00F390A641D5C6A2E763A733116B638696F4');
-        addListItem('codcoldwar', 'Call of Duty: Black Ops Cold War', '1707', 'DODI', 'magnet:?xt=urn:btih:TMSNTJPOWUV6DRETUDEB5CQEN5JN4YLC&dn=Call%20of%20Duty%20Black%20Ops%20Cold%20War%20Ultimate%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
-        addListItem('codghosts', 'Call of Duty: Ghosts', '21', 'DODI', 'magnet:?xt=urn:btih:JQP3DBMBUZKNBL6OYBGUN2VY34C3KKCE&dn=Call%20of%20Duty%20Ghosts%20-%20Deluxe%20Edition%20%5BUpdate%2021%5D%20-%20%5BDODI%20Repack%5D&tr=http%3A%2F%2Ftracker.trackerfix.com%3A80%2Fannounce');
-        addListItem('codmw2', 'Call of Duty: Modern Warfare 2', '1.1.2.1279292', 'DODI', 'magnet:?xt=urn:btih:TWJAT2ED2E5KME27QO2E4EEI37PAGVLG&dn=Call%20of%20Duty%20Modern%20Warfare%202%20Campaign%20Remastered%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
-        addListItem('codmw3', 'Call of Duty: Modern Warfare 3', '1.9.461', 'DODI', 'magnet:?xt=urn:btih:FJIC2I3Q6GVVVYEC6TLGBAN3CPTRRKQC&dn=Call%20of%20Duty%20Modern%20Warfare%203%20-%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
+        addItem('a', 'aftereffects', 'Adobe After Effects 2024', 'Patched', '24.1');
+        addItem('a', 'illustrator', 'Adobe Illustrator 2024', 'Patched', '28.1');
+        addItem('a', 'photoshop', 'Adobe Photoshop 2024', 'Patched', '25.3.1');
+        addItem('a', 'lightroomclassic', 'Adobe Photoshop Lightroom Classic', 'Patched', '13.1');
+        addItem('a', 'premierepro', 'Adobe Premiere Pro 2024', 'Patched', '24.1');
+        addItem('a', 'airparrot', 'AirParrot 3', 'Download', '3.1.7.158', 'APTreasure', 'MEGA', true, 'https://mega.nz/file/EbtxlJBA#eMmWhCTWOywFMrVVIwc57JPX6d8XORbblgYRs-EwsF0');
 
-        addListItem('fallout4', 'Fallout 4 (+DLCs)', '1.10.984', 'DODI', 'magnet:?xt=urn:btih:IHSA2QT2HBXL36Y3P2H5FW7ZQJQ4D4G3&dn=Fallout%204%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
+        addItem('b', 'bloonstd6', 'Bloons TD 6', 'Download', '42.2', 'ElAmigos', 'DDownload', true, 'https://ddownload.com/sbbv2dxwpq3r/Blo6onsT6D6-42.2-elamigos.rar');
+        addItem('b', 'bloonstd6', 'Bloons TD 6', 'Coming Soon', '42.3 (+Online)', 'APTreasure / OnlineFix');
+
+        addItem('c', 'codbo', 'Call of Duty: Black Ops', 'Magnet', '1117', 'FitGirl', 'Torrent', false, 'magnet:?xt=urn:btih:8e3b344385535434c9ddee4bfb480f433eb4e63d');
+        addItem('c', 'codbo2', 'Call of Duty: Black Ops II', 'Magnet', '1118', 'DODI', 'Torrent', false, 'magnet:?xt=urn:btih:XO6MDGHPW6W32CVASH4JLMWAL2ADKYMJ&dn=Call%20of%20Duty%20Black%20Ops%20II%20-%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
+        addItem('c', 'codbo3', 'Call of Duty: Black Ops III', 'Magnet', '100.0.0.0', 'FitGirl', 'Torrent', false, 'magnet:?xt=urn:btih:F55D00F390A641D5C6A2E763A733116B638696F4');
+        addItem('c', 'codcoldwar', 'Call of Duty: Black Ops Cold War', 'Magnet', '1707', 'DODI', 'Torrent', false, 'magnet:?xt=urn:btih:TMSNTJPOWUV6DRETUDEB5CQEN5JN4YLC&dn=Call%20of%20Duty%20Black%20Ops%20Cold%20War%20Ultimate%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
+        addItem('c', 'codghosts', 'Call of Duty: Ghosts', 'Magnet', '21', 'DODI', 'Torrent', false, 'magnet:?xt=urn:btih:JQP3DBMBUZKNBL6OYBGUN2VY34C3KKCE&dn=Call%20of%20Duty%20Ghosts%20-%20Deluxe%20Edition%20%5BUpdate%2021%5D%20-%20%5BDODI%20Repack%5D&tr=http%3A%2F%2Ftracker.trackerfix.com%3A80%2Fannounce');
+        addItem('c', 'codmw2', 'Call of Duty: Modern Warfare 2', 'Magnet', '1.1.2.1279292', 'DODI', 'Torrent', false, 'magnet:?xt=urn:btih:TWJAT2ED2E5KME27QO2E4EEI37PAGVLG&dn=Call%20of%20Duty%20Modern%20Warfare%202%20Campaign%20Remastered%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
+        addItem('c', 'codmw3', 'Call of Duty: Modern Warfare 3', 'Magnet', '1.9.461', 'DODI', 'Torrent', false, 'magnet:?xt=urn:btih:FJIC2I3Q6GVVVYEC6TLGBAN3CPTRRKQC&dn=Call%20of%20Duty%20Modern%20Warfare%203%20-%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
+
+        addItem('f', 'fallout4', 'Fallout 4', 'Magnet', '1.10.984 (+DLCs)', 'DODI', 'Torrent', false, 'magnet:?xt=urn:btih:IHSA2QT2HBXL36Y3P2H5FW7ZQJQ4D4G3&dn=Fallout%204%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
+        addItem('f', 'f2f-ironbarklookout', 'Fears to Fathom - Ironbark Lookout', 'Download', '1.6', 'TENOKE', 'RapidGator', true, 'https://rapidgator.net/file/234dde071148d56a09494bc522c5e204/F.t.F.I.L.U.v1.6-TENOKE.rar.html');
         
-        addListItem('geometrydash', 'Geometry Dash', '2.2', 'APT - MEGA', 'https://mega.nz/file/cTswyKyZ#5tIGtKYErAMYx66cWBY9xL8o9rztFYQhtjpU4Ukv8qs');
-        addListItem('gtav', 'Grand Theft Auto V (+DLCs)', '1.0.3095', 'DODI', 'magnet:?xt=urn:btih:YT2OP7EEZP5EXYIFWZLNX7DZA7WWR6S5&dn=Grand%20Theft%20Auto%20V%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
-        addListItem('goatsim3', 'Goat Simulator 3', '208081', 'FitGirl', 'magnet:?xt=urn:btih:A408C8604EC1126D36D505C4A080B18CCF5A3A6D&dn=Goat+Simulator+3+%28v208081+%2B+Multiplayer%2C+MULTi12%29+%5BFitGirl+Repack%5D&tr=udp%3A%2F%2Fopentor.net%3A6969&tr=udp%3A%2F%2Fopentor.org%3A2710&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce');
-
-        addListItem('hollowknight', 'Hollow Knight (+DLCs)', '1.5.68.11808', 'DODI', 'magnet:?xt=urn:btih:XWJLEXSADBWGF53UV25UIFBZIYNYT6NH&dn=Hollow%20Knight%20-%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
-
-        addListItem('sklauncher','Minecraft: Java Edition (SKlauncher)','3.2.5 (Any MC version)','SKlauncher','https://skmedix.pl/binaries/skl/3.2.8/x64/SKlauncher-3.2.exe');
-        addListItem('synthesia', 'Synthesia', '10.9.5890', 'Synthesia/APT - MEGA', 'https://mega.nz/file/5Gs1gJSK#To4wvFajKAHnw9rhU5qVS4D6JbMrVFGz9wGd5B7adXA');
-
-        addListItem('unpacking', 'Unpacking', '211028S', 'FitGirl', 'magnet:?xt=urn:btih:3AE4A3A808952C440FC6951F3142FDE04DC54762&dn=Unpacking+%28v211028s%2C+MULTi11%29+%5BFitGirl+Repack%5D&tr=udp%3A%2F%2F46.148.18.250%3A2710&tr=udp%3A%2F%2Fopentor.org%3A2710&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2730%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2770%2Fannounce&tr=udp%3A%2F%2Ftracker.pirateparty.gr%3A6969%2Fannounce&tr=http%3A%2F%2Fretracker.local%2Fannounce&tr=http%3A%2F%2Fretracker.ip.ncnet.ru%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce');
-        
-        addListItem('wiztree', 'WizTree Enterprise', '4.17', 'WizTree/APT - MEGA', 'https://mega.nz/file/gH8HgZhD#toYa2Exb3YGoAnV52w-A9iK9PIulNgoFPEdfOXHLSO0');
-    </script>
+        addItem('g', 'geometrydash', 'Geometry Dash', 'Download', '2.2 (+Online)', 'APTreasure', 'MEGA', true, 'https://mega.nz/file/cTswyKyZ#5tIGtKYErAMYx66cWBY9xL8o9rztFYQhtjpU4Ukv8qs');
+        addItem('g', 'gtav', 'Grand Theft Auto V', 'Magnet', '1.0.3095 (+DLCs)', 'DODI', 'Torrent', false, 'magnet:?xt=urn:btih:YT2OP7EEZP5EXYIFWZLNX7DZA7WWR6S5&dn=Grand%20Theft%20Auto%20V%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
+        addItem('g', 'goatsim3', 'Goat Simulator 3', 'Magnet', '208081', 'FitGirl', 'Torrent', false, 'magnet:?xt=urn:btih:A408C8604EC1126D36D505C4A080B18CCF5A3A6D&dn=Goat+Simulator+3+%28v208081+%2B+Multiplayer%2C+MULTi12%29+%5BFitGirl+Repack%5D&tr=udp%3A%2F%2Fopentor.net%3A6969&tr=udp%3A%2F%2Fopentor.org%3A2710&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce');
     
+        addItem('h', 'hollowknight', 'Hollow Knight', 'Magnet', '1.5.68.11808 (+DLCs)', 'DODI', 'Torrent', false, 'magnet:?xt=urn:btih:XWJLEXSADBWGF53UV25UIFBZIYNYT6NH&dn=Hollow%20Knight%20-%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
+    
+        addItem('m', 'minecraft', 'Minecraft: Java Edition', 'Open Page', '.Any MC version via SKLauncher', 'Mojang Studios', 'SKlauncher', true, 'https://skmedix.pl/downloads');
+        addItem('m', 'minecraftdungeons', 'Minecraft Dungeons', 'Magnet', '1.12.0.0', 'DODI', 'Torrent', false, 'magnet:?xt=urn:btih:C4N2MTJ3P65XG4Y5LTO5SSTKMX6AHLIQ&dn=Minecraft%20Dungeons%20-%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
+        addItem('m', 'minecraftlegends', 'Minecraft Legends', 'Magnet', '.(+DLCs)', 'DODI', 'Torrent', false, 'magnet:?xt=urn:btih:TRYRCF2H5MJ7PURLL3UZ3K5RN56X6DAU&dn=Minecraft%20Legends%20%5BDODI%20Repack%5D&tr=udp%3A%2F%2F9.rarbg.to%3A2870%2Fannounce');
+        addItem('m', 'minecraftstorymode', 'Minecraft: Story Mode', 'Magnet', '', 'FitGirl', 'Torrent', false, 'magnet:?xt=urn:btih:e35082f9ee433e4c08470793b9de22c4b50ce486');
+        addItem('m', 'minecraftstorymodes2', 'Minecraft: Story Mode - Season 2', 'Magnet', '', 'DODI', 'Torrent', false, 'magnet:?xt=urn:btih:MLNMG4GECRCJRBVBX2LPVVYQXBARU4OU&dn=Minecraft%20Story%20Mode%20Season%20Two%20Complete%20-%20%5BDODI%20Repack%5D&tr=http%3A%2F%2Ftracker.trackerfix.com%3A80%2Fannounce');
+        
+        addItem('s', 'synthesia', 'Synthesia', 'Download', '10.9.5890', 'APTreasure', 'MEGA', true, 'https://mega.nz/file/5Gs1gJSK#To4wvFajKAHnw9rhU5qVS4D6JbMrVFGz9wGd5B7adXA');
+
+        addItem('t', 'terraria', 'Terraria', 'Magnet', '1.4.4.1', 'FitGirl', 'Torrent', false, 'magnet:?xt=urn:btih:D131BFE89A253981988840C4162738BA7F0027DC&dn=Terraria+%28v1.4.4.1+-+Labor+of+Love+Update+%2B+Bonus+OST%2C+MULTi9%29+%5BFitGirl+Repack%5D&tr=udp%3A%2F%2Fopentor.net%3A6969&tr=udp%3A%2F%2Fopentor.org%3A2710&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Fretracker.lanta-net.ru%3A2710%2Fannounce&tr=udp%3A%2F%2Ftracker.cyberia.is%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.moeking.me%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.tiny-vps.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce');
+        addItem('t', 'terraria', 'Terraria', 'Coming Soon', '1.4.4.9 (+Online)', 'APTreasure / OnlineFix');
+        addItem('t', 'theexit8', 'The Exit 8', 'Magnet', '', 'FitGirl', 'Torrent', false, 'magnet:?xt=urn:btih:FDFC8E0CA8FB1015F2FA33F81F5DEFFDB9EF4DFE&dn=The+Exit+8+%28%2B+Windows+7+Fix%2C+ENG%2FJAP%29+%5BFitGirl+Repack%5D&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=http%3A%2F%2Ftracker.gbitt.info%3A80%2Fannounce&tr=http%3A%2F%2Ftracker.ccp.ovh%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.ccp.ovh%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.torrent.eu.org%3A451%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.theoks.net%3A6969%2Fannounce&tr=https%3A%2F%2Ftracker.tamersunion.org%3A443%2Fannounce&tr=http%3A%2F%2Fopen.acgnxtracker.com%3A80%2Fannounce&tr=http%3A%2F%2Fopen.acgtracker.com%3A1096%2Fannounce&tr=http%3A%2F%2Ftracker.bt4g.com%3A2095%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.openbittorrent.com%3A80%2Fannounce&tr=udp%3A%2F%2Fopentracker.i2p.rocks%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.internetwarriors.net%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce');
+        
+        addItem('u', 'unpacking', 'Unpacking', 'Magnet', '211028S', 'FitGirl', 'Torrent', false, 'magnet:?xt=urn:btih:3AE4A3A808952C440FC6951F3142FDE04DC54762&dn=Unpacking+%28v211028s%2C+MULTi11%29+%5BFitGirl+Repack%5D&tr=udp%3A%2F%2F46.148.18.250%3A2710&tr=udp%3A%2F%2Fopentor.org%3A2710&tr=udp%3A%2F%2Ftracker.coppersurfer.tk%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.opentrackr.org%3A1337%2Fannounce&tr=http%3A%2F%2Ftracker.dler.org%3A6969%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2F9.rarbg.me%3A2730%2Fannounce&tr=udp%3A%2F%2F9.rarbg.to%3A2770%2Fannounce&tr=udp%3A%2F%2Ftracker.pirateparty.gr%3A6969%2Fannounce&tr=http%3A%2F%2Fretracker.local%2Fannounce&tr=http%3A%2F%2Fretracker.ip.ncnet.ru%2Fannounce&tr=udp%3A%2F%2Fexodus.desync.com%3A6969%2Fannounce&tr=udp%3A%2F%2Fipv4.tracker.harry.lu%3A80%2Fannounce&tr=udp%3A%2F%2Fopen.stealth.si%3A80%2Fannounce&tr=udp%3A%2F%2Ftracker.zer0day.to%3A1337%2Fannounce&tr=udp%3A%2F%2Ftracker.leechers-paradise.org%3A6969%2Fannounce&tr=udp%3A%2F%2Fcoppersurfer.tk%3A6969%2Fannounce');
+
+        addItem('w', 'wiztree', 'WizTree Enterprise', 'Download', '4.17', 'APTreasure', 'MEGA', true, 'https://mega.nz/file/gH8HgZhD#toYa2Exb3YGoAnV52w-A9iK9PIulNgoFPEdfOXHLSO0');
+    </script>
+
+    <br><br><br><br><br>
+
     <div class="ocean">
         <div class="wave"></div>
         <div class="wave wave2"></div>

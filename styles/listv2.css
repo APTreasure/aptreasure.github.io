@@ -4,10 +4,18 @@
     --red: rgb(255, 127, 127);
     --pink: rgb(255, 158, 218);
     --green: rgb(126, 255, 132);
+    --orange: rgb(255, 150, 100);
     --purple: #6A5ACD;
     --lightpurple: #9c8dff;
     --lightlightpurple: #d4cdff;
     --background: #191d21;
+}
+
+
+
+.orange {
+    color: var(--orange) !important;
+    opacity: 50%;
 }
 
 

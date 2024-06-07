@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" type="text/css" href="styles/listv2.css">
+    <link rel="stylesheet" type="text/css" href="styles/water.css">
+    
+    <link rel="icon" href="images/favicon.ico" type="image/png">
+    <title>A Pirates Treasure</title>
+
+    <meta name="description" content="Download Apps for Games and Software">
+    <meta property="og:title" content="A Pirates Treasure [BETA]">
+    <meta property="og:description" content="Download Apps for Games and Software">
+    <meta property="og:image" content="https://aptreasure.github.io/images/installersBanner.png">
+    <meta property="og:url" content="https://aptreasure.github.io">
+    <meta name="twitter:card" content="twitter:card">
+    <meta name="twitter:site" content="@twitterhandle">
+    <meta name="twitter:title" content="A Pirates Treasure [BETA]">
+    <meta name="twitter:description" content="Download Apps for Games and Software">
+    <meta name="twitter:image" content="https://aptreasure.github.io/images/installersBanner.png">
+    <meta name="twitter:url" content="https://aptreasure.github.io">
+
+</head>
+<body>
+    <!-- Add Navigation Bar -->
+    <object data="header.html" class="navigation"></object>
+
+    <h1 class="info">- Software -</h1>
+    <p class="info orange">InstallerV2 pages are not finished, some things may not work as expected</p>
+
+    <div class="container" id="00input">
+        <input class="search" placeholder="Search">
+        <button class="filter"></button>
+    </div>
+
+    <!-- Add list.js script -->
+    <script src="scripts/listv2.js"></script>
+
+    <!-- Add List Items via list.js -->
+    <script>
+        // Usage: addItem('group', 'id', 'name', 'buttonText', 'version', '(by) author', '(via) downloadHost', 'openInNewTab', 'link')
+
+        // (Required) addItem():        The JavaScript function to call for a game, call also be called in the DevTools Console.
+        // (Required) Group:            The ID of the parent container.
+        // (Required) ID:               Short string the identifies the game (in '/icons').
+        // (Required) Name:             Game name.
+        // (Required) Button Text:      Text inside the button (needs to be added in js).
+
+        // (Optional) Version:          Game version. (Adds 'v ' to the start, to disable add '.' to the start)
+        // (Optional) Author:           Who the crack is by. (Adds 'by ' to the start)
+        // (Optional) Download Host:    How you are downloading (eg. 'Torrent'). (Adds 'via ')
+        // (Optional) Open in New Tab:  Boolean (true/false) which specifies if it should open in a new tab.
+        // (Optional) Link:             Link to the game.
+
+        // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z (don't judge me)
+
+        addItem('software', 'aptreasure', 'APT-Installer', 'Coming Soon', '1.0', 'APTreasure');
+        addItem('software', 'aptreasure', 'A Pirates Treasure (App)', 'Download', '1.0', 'APTreasure', 'GitHub', false, 'https://github.com/APTreasure/aptreasure.github.io/releases/download/v1.0/APTreasure-App-Setup.exe')
+        addItem('software', 'codfixer', 'Call of Duty Fixer', 'Deprecated', '.b1.0', 'APTreasure');
+        addItem('software', 'packagemanager', 'SteamRIP PKGM (Unofficial)', 'Coming Soon', '.b1.0', 'APTreasure');
+        addItem('software', 'winactivator', 'Windows Activator', 'Open Page', '.Latest', 'massgrave', 'PowerShell', true, 'https://massgrave.dev');
+    </script>
+
+    <div class="ocean">
+        <div class="wave"></div>
+        <div class="wave wave2"></div>
+    </div>
+</body>
+</html>

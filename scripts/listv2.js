@@ -33,7 +33,7 @@ document.addEventListener("DOMContentLoaded", function() {
             } else if (textContent === "Open" || textContent === "Open Page") {
                 buttonWave.style.backgroundColor = "#00aa00";
 
-            } else if (textContent === "Not Available" || textContent === "Patched") { // Corrected typo in "Not Available"
+            } else if (textContent === "Not Available" || textContent === "Patched" || textContent == "Deprecated") { // Corrected typo in "Not Available"
                 buttonWave.style.backgroundColor = "#202530";
                 button.style.cursor = "not-allowed";
                 button.href = "javascript:void(0);";
