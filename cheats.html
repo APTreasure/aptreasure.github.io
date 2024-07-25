@@ -33,13 +33,41 @@
     <object data="header.html" class="navigation"></object>
 
     <h1 class="info">- Cheats -</h1>
-    <p class="info">InstallerV2 pages are not finished, some things may not work as expected</p>
+    <p class="info">Press CTRL+A to select everything, and then drag it to your bookmarks bar</p>
+    <p class="info orange">InstallerV2 pages are not finished, some things may not work as expected</p>
+
+    <div class="container" id="00input">
+        <input class="search" placeholder="Search">
+        <button class="filter"></button>
+    </div>
 
     <!-- Add list.js script -->
-    <script src="scripts/list.js"></script>
+    <script src="scripts/listv2.js"></script>
 
     <!-- Add List Items via list.js -->
     <script>
+        // Usage: addItem('group', 'id', 'name', 'buttonText', 'version', '(by) author', '(via) downloadHost', 'openInNewTab', 'link')
+
+        // (Required) addItem():        The JavaScript function to call for a game, call also be called in the DevTools Console.
+        // (Required) Group:            The ID of the parent container.
+        // (Required) ID:               Short string the identifies the game (in '/icons').
+        // (Required) Name:             Game name.
+        // (Required) Button Text:      Text inside the button (needs to be added in js).
+
+        // (Optional) Version:          Game version. (Adds 'v ' to the start, to disable add '.' to the start)
+        // (Optional) Author:           Who the crack is by. (Adds 'by ' to the start)
+        // (Optional) Download Host:    How you are downloading (eg. 'Torrent'). (Adds 'via ')
+        // (Optional) Open in New Tab:  Boolean (true/false) which specifies if it should open in a new tab.
+        // (Optional) Link:             Link to the game.
+
+        // A B C D E F G H I J K L M N O P Q R S T U V W X Y Z (don't judge me)
+
+        addItem('blooket', 'blooket', 'Blooket Cheats', 'Open Page', '.Latest', '05Konz', 'GitLab', true, 'https://gitlab.com/blooket/blooket-cheats/-/raw/main/cheats/gui.min.js?ref_type=heads');
+        addItem('blooket', 'blooket', 'Highlight Answers', 'Open Page', '.Latest', 'CodeGames/APTreasure', 'GitHub', true, 'https://github.com/APTreasure/blooket-and-kahoot/blob/main/HighlightAnswers.js?raw=true');
+        addItem('blooket', 'blooket', 'Auto Answer', 'Open Page', '.Latest', 'APTreasure', 'GitHub', true, 'https://github.com/APTreasure/blooket-and-kahoot/blob/main/AutoAnswer.js?raw=true');
+        
+        addItem('kahoot', 'kahoot', 'No Name Restrictions', 'Open Page', '.Latest', 'slither/APTreasure', 'GitHub', true, 'https://github.com/APTreasure/blooket-and-kahoot/blob/main/NoNameRestrictions.js?raw=true');
+        
     </script>
 
     <div class="ocean">
