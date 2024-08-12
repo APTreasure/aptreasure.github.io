@@ -99,7 +99,7 @@ function switchImage(event) {
         // Remove the parrothover class
         currentImg.classList.remove('parrothover');
       }
-    }, 216);
+    }, 2160);
   }
 }
 
