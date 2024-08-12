@@ -85,7 +85,7 @@ function switchImage(event) {
   // Check if the current image is static and not already animated
   if (!isAnimated) {
     // Switch to the animated image
-    currentImg.src = 'images/parrot_animated.webp';
+    currentImg.src = 'images/parrot_animated.gif';
 
     // Add the parrothover class
     currentImg.classList.add('parrothover');
@@ -99,7 +99,7 @@ function switchImage(event) {
         // Remove the parrothover class
         currentImg.classList.remove('parrothover');
       }
-    }, 3000);
+    }, 216);
   }
 }
 
