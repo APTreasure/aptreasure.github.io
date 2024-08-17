@@ -62,11 +62,12 @@ body {
 
 .navigation { /* The navigation bar, it is hosted on navigation.html so not much css here */
     margin: 0;
-    padding: 0; /* Fix positioning again */
+    padding: 0;
     width: 100%;
-    height: 3rem; /* Change width/height back to normal */
+    height: 3rem;
+    position: -webkit-sticky;
     position: sticky;
-    top: 0; /* Make it so that when you scroll, it will stay at the top of the screen */
+    top: 0;
     min-width: 61rem;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
     z-index: 9999;
