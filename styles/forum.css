@@ -71,13 +71,14 @@ a:hover {
     margin: 0;
     padding: 0;
     width: 100%;
-    height: fit-content;
+    height: 3rem;
     position: -webkit-sticky;
-    position: sticky;
+    position: fixed;
     top: 0;
     min-width: 45rem;
     z-index: 1000;
-    border: 1px solid rgba(255, 0, 0, 0.5);
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.2);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.02);
 }
 
 
