@@ -437,7 +437,7 @@ a span {
 
 
 .search, .filter {
-    transition: 0.1s;
+    transition: 0.1s ease-out;
     border-radius: 69px;
     height: 32px;
     margin-bottom: 10px;
