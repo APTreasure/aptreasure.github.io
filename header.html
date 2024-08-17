@@ -9,8 +9,6 @@
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Lexend&display=swap" rel="stylesheet">
         <style>
-
-            /* Add colours */
             :root {
                 --blue: rgb(132, 210, 255);
                 --red: rgb(255, 127, 127);
@@ -27,7 +25,9 @@
                 padding: 0;
                 height: fit-content;
                 overflow: hidden;
-                backdrop-filter: blur(2px) brightness(1.1);
+                background: linear-gradient(to top, rgba(25, 29, 33, 0.4) 0%, rgba(25, 29, 33, 0.8) 100%);
+                box-shadow: 0 0px 16px rgba(0, 0, 0, 1);
+                backdrop-filter: blur(3px);
             }
 
             .header, .headerLinks {
@@ -42,6 +42,10 @@
                 padding-left: 0.5rem;
                 padding-right: 0.5rem;
                 font-weight: normal;
+                transform-origin: bottom;
+                -webkit-user-select: none;
+                -ms-user-select: none;
+                user-select: none;
             }
 
             a:not(.icon) {
@@ -58,11 +62,20 @@
                 transition: 0.2s;
             }
 
-            .headerLinkText:hover, .headerLinkText1:hover, .icon:hover {
+            .headerLinkText:hover,
+            .headerLinkText1:hover,
+            .icon:hover,
+            .headerLinkText.hover,
+            .headerLinkText1.hover
+            .icon.hover {
                 transform: scale(1.1);
                 color: #ffffff;
                 border: none;
             } .headerLinkText1:hover { transform: scale(1.1); color: var(--yellow); }
+
+            .hover {
+                cursor: default;
+            }
 
             a b {
                 color: white;
@@ -78,18 +91,17 @@
 
     <body>
         <div class="header">
-            <a href="https://aptreasure.github.io" target="_top"><img src="images/title.png" class="icon"></a>
+            <a href="https://aptreasure.com" target="_top"><img src="images/title.png" class="icon"></a>
             <div class="headerLinks">
                 <a class="headerLinkText" href="https://aptreasure.github.io" target="_top">HOME</a>
                 <a class="headerLinkText" href="software" target="_top">SOFTWARE</a>
                 <a class="headerLinkText" href="repacks" target="_top">REPACKS</a>
                 <a class="headerLinkText" href="cheats" target="_top">CHEATS</a>
                 <!--
-                <a class="headerLinkText" href="" target="_top">PORTABLE</a>
                 <a class="headerLinkText" href="" target="_top">WEBSITES</a>
                 -->
             </div>
-            <a href="https://github.com/APTreasure?tab=repositories" target="_blank" class="headerLinkText1 github">GITHUB</a>
+            <a href="https://github.aptreasure.com" target="_blank" class="headerLinkText1 github">GITHUB</a>
             <!--
             <a href="" target="_top" class="headerLinkText1 tutorials" style="margin-right: 8rem;">TUTORIALS</a>
             <a href="" target="_top" target="_blank" class="headerLinkText1 request" style="margin-right: 16rem;">REQUEST</a>
@@ -97,23 +109,43 @@
         </div>
 
         <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        var currentPath = window.location.pathname;
+            console.log("Started Header Script");
 
-        // Get all anchor elements with class "headerLinkText" within the object
-        var links = document.querySelectorAll('object .headerLinkText');
+            const parentURL = window.top.location.href;
 
-        // Loop through each link and check if its href matches the current path
-        links.forEach(function(link) {
-            var linkPath = link.getAttribute('href');
-            if (linkPath && currentPath.includes(linkPath)) {
-                link.style.fontWeight = 'bold'; // Set bold font weight for current link
+            console.log('Parent URL:', parentURL);
+
+            const links = document.querySelectorAll('.headerLinkText, .headerLinkText1');
+
+            links.forEach(link => {
+            const linkHref = link.getAttribute('href');
+            
+            const matches = parentURL.includes(linkHref) || parentURL.includes(linkHref + '.html');
+            console.log('Link href:', linkHref);
+            console.log('Matches:', matches);
+            
+            if (matches) {
+                link.classList.add('hover');
+                link.removeAttribute('href');
             }
-        });
-    });
-</script>
+            });
 
-        
-        
+            const parentBody = window.top.document.body;
+            const br1 = document.createElement('br');
+            const br2 = document.createElement('br');
+            const br3 = document.createElement('br');
+            parentBody.insertBefore(br1, parentBody.firstChild);
+            parentBody.insertBefore(br2, parentBody.firstChild);
+            parentBody.insertBefore(br3, parentBody.firstChild);
+
+            setTimeout(() => {
+                window.top.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            }, 100);
+
+            console.log("Finished Header Script")
+        </script>
     </body>
 </html>

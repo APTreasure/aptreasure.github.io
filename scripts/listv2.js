@@ -1,60 +1,88 @@
 // Requirements Popup
-var popupShown = false;
+var popupShown = localStorage.getItem('popupShown') === 'true';
+var popupBg = document.querySelector('.popupBg');
+var popup = document.querySelector('.popup');
+var filterButton = document.querySelector('.filter');
 
 function showPopup() {
     if (!popupShown) {
-        document.getElementById('popup').classList.add('visible');
-        popupShown = true;
+        popupBg.classList.add('visible');
+        popup.classList.add('visible');
     }
 }
 
 function closePopup() {
-    document.getElementById('popup').classList.remove('visible');
+    popupBg.classList.remove('visible');
+    popup.classList.remove('visible');
+    popupShown = true;
+    localStorage.setItem('popupShown', 'true');
 }
+
+function resetPopup() {
+    popupShown = false;
+    localStorage.setItem('popupShown', 'false');
+    filterButton.textContent = "Reset!";
+
+    setTimeout(() => {
+        filterButton.textContent = "Test";
+    }, 1000);
+}
+
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Enter' && popupBg.classList.contains("visible") && popup.classList.contains("visible")) {
+        closePopup();
+    }
+});
+
 
 
 
 document.addEventListener("DOMContentLoaded", function() {
-    var buttons = document.querySelectorAll("a");
+    var buttons = document.querySelectorAll(".gameButton");
 
     buttons.forEach(function(button) {
-        var span = button.querySelector(".buttonText");
-        var buttonWave = button.querySelector(".buttonWave");
+        if (!button.classList.contains('popupButton')) {
+            var span = button.querySelector(".buttonText");
+            var buttonWave = button.querySelector(".buttonWave");
 
-        if (span && buttonWave) {
-            var textContent = span.textContent.trim(); // Use textContent of the span element
+            if (span && buttonWave) {
+                var textContent = span.textContent.trim(); // Use textContent of the span element
 
-            if (textContent === "Download") {
-                buttonWave.style.backgroundColor = "#00aaff";
+                if (textContent === "Download") {
+                    buttonWave.style.backgroundColor = "#00aaff";
 
-            } else if (textContent === "Magnet") {
-                buttonWave.style.backgroundColor = "#6A5ACD";
+                } else if (textContent === "Magnet") {
+                    buttonWave.style.backgroundColor = "#6A5ACD";
+                    button.onclick = function() {
+                        showPopup();
+                    }
 
-            } else if (textContent === "Open" || textContent === "Open Page") {
-                buttonWave.style.backgroundColor = "#00aa00";
+                } else if (textContent === "Open" || textContent === "Open Page") {
+                    buttonWave.style.backgroundColor = "#00aa00";
 
-            } else if (textContent === "Not Available" || textContent === "Patched" || textContent == "Deprecated") { // Corrected typo in "Not Available"
-                buttonWave.style.backgroundColor = "#202530";
-                button.style.cursor = "not-allowed";
-                button.href = "javascript:void(0);";
-                button.target = "";
-                span.style.opacity = "0.5";
+                } else if (textContent === "Not Available" || textContent === "Patched" || textContent == "Deprecated") { // Corrected typo in "Not Available"
+                    buttonWave.style.backgroundColor = "#202530";
+                    button.style.cursor = "not-allowed";
+                    button.href = "javascript:void(0);";
+                    button.target = "";
+                    span.style.opacity = "0.5";
 
-            } else if (textContent === "Coming Soon") {
-                buttonWave.style.backgroundColor = "#883300";
-                button.style.cursor = "not-allowed";
-                button.href = "javascript:void(0);";
-                button.target = "";
-                span.style.opacity = "0.5";
+                } else if (textContent === "Coming Soon" || textContent === "Future Release") {
+                    buttonWave.style.backgroundColor = "#883300";
+                    button.style.cursor = "not-allowed";
+                    button.href = "javascript:void(0);";
+                    button.target = "";
+                    span.style.opacity = "0.5";
 
-            } else {
-                buttonWave.style.backgroundColor = "#502020";
-                span.style.opacity = "0.5";
-                span.textContent = "Styling Error";
-                button.style.cursor = "not-allowed";
-                button.href = "javascript:void(0);";
-                button.target = "";
-                button.style.pointerEvents = "none";
+                } else {
+                    buttonWave.style.backgroundColor = "#502020";
+                    span.style.opacity = "0.5";
+                    span.textContent = "Styling Error";
+                    button.style.cursor = "not-allowed";
+                    button.href = "javascript:void(0);";
+                    button.target = "";
+                    button.style.pointerEvents = "none";
+                }
             }
         }
     });
@@ -62,12 +90,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 document.querySelectorAll('.gameButton').forEach(button => {
-    button.addEventListener('mouseover', () => {
-        button.parentElement.querySelector('.downInfo').classList.add('adjusted-margin');
-    });
-    button.addEventListener('mouseout', () => {
-        button.parentElement.querySelector('.downInfo').classList.remove('adjusted-margin');
-    });
+    if (!button.classList.contains('popupButton')) {
+        button.addEventListener('mouseover', () => {
+            button.parentElement.querySelector('.downInfo').classList.add('adjusted-margin');
+        });
+        button.addEventListener('mouseout', () => {
+            button.parentElement.querySelector('.downInfo').classList.remove('adjusted-margin');
+        });
+    }
 });
 
 
@@ -77,42 +107,34 @@ document.querySelectorAll('.gameButton').forEach(button => {
 
 const parrotImgs = document.querySelectorAll('.parrot');
 
-// Function to switch images
 function switchImage(event) {
   const currentImg = event.target;
   const isAnimated = currentImg.src.includes('parrot_animated.webp');
 
-  // Check if the current image is static and not already animated
   if (!isAnimated) {
-    // Switch to the animated image
     currentImg.src = 'images/parrot_animated.gif';
 
-    // Add the parrothover class
     currentImg.classList.add('parrothover');
 
-    // Check if the mouse is still over the image every 3 seconds
     const intervalId = setInterval(() => {
       if (!currentImg.matches(':hover')) {
-        // If the mouse is not over the image, switch back to static image
+
         currentImg.src = 'images/parrot.png';
-        clearInterval(intervalId); // Stop checking once the image is switched
-        // Remove the parrothover class
+        clearInterval(intervalId);
         currentImg.classList.remove('parrothover');
+
       }
     }, 2160);
   }
 }
 
-// Add mouseover event listener to trigger animation
 parrotImgs.forEach(parrotImg => {
   parrotImg.addEventListener('mouseover', switchImage);
 });
 
-// Add mouseout event listener to stop animation if mouse leaves the image
 parrotImgs.forEach(parrotImg => {
   parrotImg.addEventListener('mouseout', () => {
-    clearInterval(intervalId); // Stop checking if mouse leaves the image
-    // Remove the parrothover class
+    clearInterval(intervalId);
     parrotImg.classList.remove('parrothover');
   });
 });
@@ -210,6 +232,7 @@ function addItem(containerSelector, gameIcon, gameTitle, buttonText, gameVers = 
 
 
 
+// If ANYONE can code this better, please do
 document.querySelector('.search').addEventListener('input', function() {
     let searchValue = this.value.trim().toLowerCase();
     let searchContainer = document.getElementById('00input');
@@ -227,7 +250,7 @@ document.querySelector('.search').addEventListener('input', function() {
                 let originalGameTitle = gameTitleElement.textContent.trim();
                 let gameTitle = gameTitleElement.textContent.trim().toLowerCase();
                 let cleanGameTitle = gameTitle.replace(/[^\w\s]/g, '');
-                let imageID = row.querySelector('.gameIcon').src.replace(/^.+\/([^\/]+)\.png$/, '$1'); // We can't be bothered re-coding this, so it stays :O
+                let imageID = row.querySelector('.gameIcon').src.replace(/^.+\/([^\/]+)\.png$/, '$1');
                 let titleWords = gameTitle.split(' ');
 
                 let combinedLetters = '';
@@ -342,7 +365,7 @@ document.querySelector('.search').addEventListener('input', function() {
                 console.log("Original Text Match: ", originalTextMatch);
     
                 highlightedText = highlightedText.substring(0, pos) +
-                    `<span style="color: #ffd700; border-radius: 4px; background-color: rgba(255, 215, 0, 0.1); padding: 0 2px; margin: 0 1px;">${originalTextMatch}</span>` +
+                    `<span style="color: #ffd700; border-radius: 4px; background-color: rgba(255, 215, 0, 0.1); padding: 0 0px; margin: 0 1px;">${originalTextMatch}</span>` +
                     highlightedText.substring(endPos);
             });
             return highlightedText;
