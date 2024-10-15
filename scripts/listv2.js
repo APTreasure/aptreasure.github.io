@@ -162,6 +162,7 @@ function addItem(containerSelector, gameIcon, gameTitle, buttonText, gameVers = 
     const icon = document.createElement('img');
     icon.className = 'gameIcon';
     icon.src = `icons/${gameIcon}.png`;
+    if (roundCorners) icon.style.borderRadius = '16px';
     
     const gameInfo = document.createElement('div');
     gameInfo.className = 'gameInfo';
