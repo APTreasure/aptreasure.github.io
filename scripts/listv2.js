@@ -146,7 +146,7 @@ parrotImgs.forEach(parrotImg => {
 
 
 
-function addItem(containerSelector, gameIcon, gameTitle, buttonText, gameVers = '', downAuthor = '', downHost = '', openInNewTab = false, buttonLink = '') {
+function addItem(containerSelector, gameIcon, gameTitle, buttonText, gameVers = '', downAuthor = '', downHost = '', openInNewTab = false, buttonLink = '', roundCorners = true) {
     let container = document.querySelector(`#${containerSelector}.container`);
 
     if (!container) {
