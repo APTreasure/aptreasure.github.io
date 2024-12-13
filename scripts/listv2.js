@@ -100,6 +100,28 @@ document.querySelectorAll('.gameButton').forEach(button => {
     }
 });
 
+// Cull Buttons
+document.addEventListener('DOMContentLoaded', () => {
+    const buttons = document.querySelectorAll('.gameButton');
+
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('animate');
+            } else {
+                entry.target.classList.remove('animate');
+            }
+        });
+    }, {
+        root: null, // viewport
+        threshold: 0.1 // when button 10% visible
+    });
+
+    buttons.forEach(button => {
+        observer.observe(button);
+    });
+});
+
 
 
 
