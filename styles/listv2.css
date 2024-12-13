@@ -360,12 +360,18 @@ button {
 .buttonWave::before {
     border-radius: 45%;
     background-color: rgba(20, 20, 20, 0.75);
-    animation: buttonWaveAnimation 5s linear infinite;
 }
 
 .buttonWave::after {
     border-radius: 40%;
     background-color: rgba(20, 20, 20, 0.5);
+}
+
+.gameButton.animate .buttonWave::before {
+    animation: buttonWaveAnimation 5s linear infinite;
+}
+
+.gameButton.animate .buttonWave::after {
     animation: buttonWaveAnimation 10s linear infinite;
 }
 

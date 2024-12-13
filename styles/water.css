@@ -20,6 +20,7 @@ body {
   
 .wave {
     background: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/85486/wave.svg) repeat-x;
+    filter: hue-rotate(20deg);
     position: fixed;
     width: 6400px;
     /* top: -198px; */
@@ -33,6 +34,7 @@ body {
   
 .wave:nth-of-type(2) {
     /* top: -168px; */
+    filter: hue-rotate(20deg);
     top: calc(100vh - 75px);
     animation: swell 4s ease-in-out infinite;
     opacity: 1;
