@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="icon" href="images/favicon.ico" type="image/png">
+        <title>A Pirates Treasure</title>
+        <style>
+            body {
+                font-family: 'Lexend', sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                justify-content: space-between;
+                background: linear-gradient(to bottom, #191d21, #142331);
+                background-attachment: fixed;
+                overflow: hidden;
+            }
+
+            p, h1 {
+                color: white;
+                margin: 8px 0;
+            }
+
+            /* --- */
+
+            div.pane {
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+
+            div.pane.left { width: 40vw; }
+            div.pane.right { width: 60vw; }
+
+            div.item {
+                width: 80%;
+                margin: 0 auto;
+                display: block;
+                padding: 5px 15px;
+                border-radius: 28px;
+                background-color: rgba(100, 100, 100, 0.08);
+                border: 1px solid #303841;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+                margin-bottom: 15px;
+                opacity: 1;
+            }
+
+            /* --- */
+
+            .item p {
+                text-align: left;
+                color: lightgrey;
+            }
+
+            img.title {
+                width: 80%;
+                padding-bottom: 20px;
+                margin-bottom: 20px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            }
+
+            /* --- */
+
+            div.dropdown {
+                display: flex;
+                justify-content: center;
+                cursor: pointer;
+            }
+
+            .dropdown p {
+                color: white;
+            }
+
+            /* --- */
+
+            .answer {
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.2s ease-out, opacity 0.2s ease-out;
+                opacity: 0;
+            }
+
+            /* --- */
+
+            a {
+                color: #9c8dff;
+                transition: 0.2s
+            }
+
+            a:hover {
+                text-shadow: #9c8dff 0px 0px 15px;
+                color: #d4cdff;
+            }
+
+            .answer.open {
+                max-height: 1000px;
+                opacity: 1;
+            }
+
+            /* --- */
+
+            img.toggle-img {
+                margin-right: 8px;
+                transition: transform 0.2s ease-out;
+            }
+
+            img.toggle-img.enable {
+                transform: rotate(180deg);
+            }
+
+            /* --- */
+
+            p.note {
+                opacity: 30%;
+                padding-top: 20px;
+                transition: opacity 0.2s ease-out;
+            }
+
+            p.note:hover {
+                opacity: 100%;
+            }
+
+            /* --- */
+            .continue {
+                opacity: 30%;
+                transition: opacity 0.1s ease-out;
+            }
+
+            /* --- */
+            .continue:hover {
+                opacity: 1;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="pane left">
+            <img src="images/title.png" class="title">
+            <p>APTreasure is being <b>removed</b> on June 22, 2025.</p>
+            <p>Read more in the right pane →</p>
+            <br>
+            <p class="continue"><a href="home">Continue anyway</a> (Until 08/06/2025)</p>
+        </div>
+        <div class="pane right">
+            <h1>FAQ</h1>
+
+            <div class="item">
+                <div class="dropdown">
+                    <img src="images/dropdown.svg" class="toggle-img">
+                    <p>Why is APT shutting down?</p>
+                </div>
+                <div class="answer">
+                    <p>APTreasure is a big weight to carry due to having a <b>lot</b> of copyrighted material, which could be found at any moment. Just one report to a few companies could take the <b>entire</b> website down, or even worse. No, APTreasure has not received any DMCA takedowns or copyright infringement notices. In fact, I'm not sure how it lasted over a year without any!</p>
+                    <br>
+                    <p>Imagine if any second, a project you've worked on for <b>over a year could</b> be <b>wiped</b>. Along with that, you could get in legal trouble for creating and hosting it. That's my situation right now, and I've decided it's best to discontinue APTreasure. If you'd like, you can still download the website from the "Can I still use APT?" section and use it locally, although it's better to use alternative websites.</p>
+                </div>
+            </div>
+
+            <div class="item">
+                <div class="dropdown">
+                    <img src="images/dropdown.svg" class="toggle-img">
+                    <p>Will APT come back in the future?</p>
+                </div>
+                <div class="answer">
+                    <p>No, at least not from this team. A Pirates Treasure will never come back. If you see this website again after June 22nd, it is most likely a fake and I'd advise against using it. If you are looking to host APTreasure on your own server, please don't, but I am not liable for any reprocussions that come from your choices.</p>
+                    <p>Even if APTreasure were to officially come back, it wouldn't contain any repacks or copyrighted content. It would just be a place for simple project and cool software.</p>
+                    <p>If you'd like to still sail the seas and find repacks, check out the "Where can I get repacks now?" dropdown.</p>
+                </div>
+            </div>
+            
+            <div class="item">
+                <div class="dropdown">
+                    <img src="images/dropdown.svg" class="toggle-img">
+                    <p>Where can I get repacks now?</p>
+                </div>
+                <div class="answer">
+                    <p>Ah, you're still sailing the seas? Here's a few resources to aid you in your journey:</p>
+                    <br>
+                    <p><a href="https://example.com" target="_blank">r/Piracy Megathread</a> (An abundance of most pirate-related resources)</p>
+                    <p><a href="https://example.com" target="_blank">SteamRIP</a> (Pre-installed games)</p>
+                    <p><a href="https://fitgirl-repacks.site/" target="_blank">FitGirl Repacks</a> (Repackaged Installers)</p>
+                    <p><a href="https://example.com" target="_blank">DODI Repacks</a> (Repackaged Installers)</p>
+                    <p><a href="https://pesktop.com" target="_blank">Pesktop</a> (Repackaged Software)</p>
+                    <br>
+                    <p>I'd recommend using FitGirl Repacks or DODI Repacks for most games (whoever has the latest version). If they don't have the game, I'd recommend using SteamRIP. If you're looking for software like Filmora or AirParrot, I'd recommend Pesktop, but make sure to be cautious of ads</p>
+                </div>
+            </div>
+            
+            <div class="item">
+                <div class="dropdown">
+                    <img src="images/dropdown.svg" class="toggle-img">
+                    <p>Can I still use APT?</p>
+                </div>
+                <div class="answer">
+                    <p>You can, but I wouldn't go through the hastle of downloading an older commit, extracting, and opening from a local file. There are better alternatives out there with more games and software. If you really insist though, it's not like I can stop you.</p>
+                    <p>By downloading the website now you can have access to it forever, but will no longer be updated and APT-Setup files <b>cannot</b> be downloaded. This includes all source code, including the app. You can open the website by opening <b>"index.html"</b></p>
+                    <br>
+                    <a href="https://github.com/APTreasure/aptreasure.github.io/archive/d957a8684e5750e42730abc3fdfc4419a3a97f52.zip">Download All</a>
+                </div>
+            </div>
+            
+            <div class="item">
+                <div class="dropdown">
+                    <img src="images/dropdown.svg" class="toggle-img">
+                    <p>Will the APT App still function?</p>
+                </div>
+                <div class="answer">
+                    <p>No, even the app runs off of the website information. Since the website has this notice, so does the app, and will fail to load once the website is taken down.</p>
+                    <p>All APT-Setups will still work properly as the software is packaged into them, but you will be unable to download any APT-Setup files.</p>
+                </div>
+            </div>
+            
+            <div class="item">
+                <div class="dropdown">
+                    <img src="images/dropdown.svg" class="toggle-img">
+                    <p>What's the Dev Team doing now?</p>
+                </div>
+                <div class="answer">
+                    <p>Believe it or not, there was really only one developer on this entire project, and that's me. APTreasure usually appeared as a larger organisation, with a bigger team and more production value, but all this started as a passion project.</p>
+                    <p>A Pirates Treasure's first appearance was when a friend asked for a game, for free. I sent it over to them over Google Drive, but they asked for another. Eventually, the folder grew bigger, and more people were downloading games from it. Then I had an idea; what if instead of a random folder, there was a site for all of these games? And that's where APTreasure was created.</p>
+                    <p>I've learnt a lot from this project, mainly being UI and UX design. In the foreseeable future, I'll use these skills for other projects, not accociated with A Pirates Treasure.</p>
+                </div>
+            </div>
+
+            <p class="note">Thank you for using A Pirates Treasure!</p>
+
+        </div>
+
+        <script>
+            document.querySelectorAll('.dropdown').forEach(drop => {
+                drop.addEventListener('click', () => {
+                    const answer = drop.parentElement.querySelector('.answer');
+                    const img = drop.querySelector('img');
+
+                    const wasOpen = answer.classList.contains('open');
+
+                    // disable all dropdowns
+                    document.querySelectorAll('div.answer').forEach(a => a.classList.remove('open'));
+                    document.querySelectorAll('.dropdown img.toggle-img').forEach(i => i.classList.remove('enable'));
+                    
+                    // enable users option
+                    if (!wasOpen) {
+                        answer.classList.add('open');
+                        img.classList.add('enable');
+                    }
+                });
+            });
+        </script>
+    </body>
+</html>
